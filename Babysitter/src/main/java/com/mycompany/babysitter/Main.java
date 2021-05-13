@@ -154,7 +154,7 @@ public class Main
                         tastiera.nextLine();
                         break;
                     }
-                    case 3: //termina intervento
+                    case 3: //termina intervento (deve essere ancora attivo)
                     {
                         System.out.println("Inserisci il codice dell'intervento da terminare --> ");
                         idIntervento=tastiera.nextInt();
