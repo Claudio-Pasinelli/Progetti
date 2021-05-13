@@ -311,7 +311,7 @@ public class Azienda
         String attaccato="";
         Intervento intervento;
         if (nInterventiPresenti==0)
-            attaccato+="Nessun intervento presente nell'archivio dell'azienda";
+            attaccato+="\nNessun intervento presente nell'archivio dell'azienda\n";
         else
         {
             for (int i=0;i<nInterventiPresenti;i++)

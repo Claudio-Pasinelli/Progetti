@@ -160,16 +160,30 @@ public class Main
                         idIntervento=tastiera.nextInt();
                         esitoOperazione=a.modificaStatusIntervento(idIntervento);
                         if(esitoOperazione==-1)
+                        {
                             System.out.println("Non è stato possibile terminare l'intervento numero: "+idIntervento);
+                            System.out.println("Premi un pulsante per continuare.");
+                            tastiera.nextLine();
+                            tastiera.nextLine();
+                            break;
+                        }
                         else if(esitoOperazione==-2)
+                        {
                             System.out.println("L'intervento: "+idIntervento+" è già stato terminato.");
+                            System.out.println("Premi un pulsante per continuare.");
+                            tastiera.nextLine();
+                            tastiera.nextLine();
+                            break;
+                        }
                         else
+                        {
                             System.out.println("L'intervento: "+idIntervento+" è stato terminato.");
-                        System.out.println(a.getIntervento(idIntervento));
-                        System.out.println("Premi un pulsante per continuare.");
-                        tastiera.nextLine();
-                        tastiera.nextLine();
-                        break;
+                            System.out.println(a.getIntervento(idIntervento));
+                            System.out.println("Premi un pulsante per continuare.");
+                            tastiera.nextLine();
+                            tastiera.nextLine();
+                            break;
+                        }
                     }
                     case 4: //elenco di tutti gli interventi dell'azienda
                     {
@@ -184,7 +198,7 @@ public class Main
                         cognomeBabysitter=tastiera.nextLine();
                         String[] elencoRicerca=a.elencoInterventiBabysitter(nomeBabysitter, cognomeBabysitter);
                         if(elencoRicerca==null)
-                            System.out.println("La babysitter: \""+nomeBabysitter+" "+cognomeBabysitter+"\" non è stata trovata");
+                            System.out.println("\nLa babysitter: \""+nomeBabysitter+" "+cognomeBabysitter+"\" non è stata trovata");
                         else
                         {
                             for(int i=0; i<elencoRicerca.length;i++)
