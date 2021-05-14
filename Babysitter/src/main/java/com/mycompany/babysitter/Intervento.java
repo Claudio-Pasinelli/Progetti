@@ -6,6 +6,7 @@
 package com.mycompany.babysitter;
 
 import eccezioni.DateException;
+import java.io.Serializable;
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
 
@@ -22,7 +23,7 @@ import java.time.LocalDateTime;
  * terminato: boolean che indica se l'intervento è finito o no. Di default è impostato su false.
  * @author Pc
  */
-public class Intervento
+public class Intervento implements Serializable
 {
     private String nomeCliente;
     private String cognomeCliente;

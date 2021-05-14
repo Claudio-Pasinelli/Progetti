@@ -1,4 +1,7 @@
 com\mycompany\babysitter\Intervento.class
+file\TextFile.class
+com\mycompany\babysitter\Ordinatore.class
 com\mycompany\babysitter\Babysitter.class
 com\mycompany\babysitter\Main.class
 eccezioni\InterventiNonTrovati.class
+eccezioni\FileException.class

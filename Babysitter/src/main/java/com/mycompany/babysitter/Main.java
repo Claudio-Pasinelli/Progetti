@@ -19,7 +19,7 @@ public class Main
 {
     static long idProssimoIntervento=1;
     static Scanner tastiera=new Scanner(System.in);
-    public static void main(String[] args) throws InterventoNonTrovato
+    public static void main(String[] args) throws InterventoNonTrovato, InterventiNonTrovati
     {
         Babysitter babysitter;
         String nomeBabysitter;
@@ -32,18 +32,36 @@ public class Main
         long idIntervento=0;
         int annoInizio=2021, meseInizio=1, giornoInizio=1, oraInizio=18, minutiInizio=30;
         int annoFine=2021, meseFine=1, giornoFine=2, oraFine=20, minutiFine=30;
+        String nomeFileTesto="InterventiAzienda.txt";
+        String nomeFileBinario="Azienda.bin";
         
-        String[] elencoVociMenu= new String[7];
+        String[] elencoVociMenu= new String[9];
         elencoVociMenu[0]="Termina il programma";
         elencoVociMenu[1]="Aggiungi un intervento";
         elencoVociMenu[2]="Elimina un intervento";
         elencoVociMenu[3]="Termina un intervento";
         elencoVociMenu[4]="Visualizza tutti gli interventi dell'azienda";
-        elencoVociMenu[5]="Visualizza tutti gli interventi di una determinata babysitter";
+        elencoVociMenu[5]="Visualizza tutti gli interventi in ordine cronologico di una determinata babysitter";
         elencoVociMenu[6]="Visualizza tutti gli interventi di una data";
+        elencoVociMenu[7]="Esporta i dati in un file di testo";
+        elencoVociMenu[8]="Salva i dati";
         
         int sceltaUtente=-1, esitoOperazione;
         Menu menu=new Menu(elencoVociMenu);
+        
+        try 
+        {
+            a=a.caricaAzienda(nomeFileBinario);
+            System.out.println("Dati caricati correttamente");
+        } 
+        catch (IOException ex) 
+        {
+            System.out.println("Impossibile accedere al file in lettura. I dati non sono stati caricati");
+        } 
+        catch (FileException ex) 
+        {
+            System.out.println(ex.toString());
+        }
         
         do
         {
@@ -196,7 +214,7 @@ public class Main
                         nomeBabysitter=tastiera.nextLine();
                         System.out.println("Inserisci il cognome della babysitter da cercare --> ");
                         cognomeBabysitter=tastiera.nextLine();
-                        String[] elencoRicerca=a.elencoInterventiBabysitter(nomeBabysitter, cognomeBabysitter);
+                        String[] elencoRicerca=a.elencoInterventiCronologiciBabysitter(nomeBabysitter, cognomeBabysitter);
                         if(elencoRicerca==null)
                             System.out.println("\nLa babysitter: \""+nomeBabysitter+" "+cognomeBabysitter+"\" non è stata trovata");
                         else
@@ -256,6 +274,35 @@ public class Main
                         }
                         break;
                     }
+                    case 7:
+                    {
+                        try
+                        {
+                            a.esportaInterventiCSV(nomeFileTesto);
+                            System.out.println("Gli interventi sono stati esportati correttamente");
+                        }
+                        catch(IOException e1)
+                        {
+                            System.out.println("Impossibile accedere al file");
+                        }
+                        catch(FileException e2)
+                        {
+                            System.out.println(e2.toString());
+                        }
+                        break;
+                    }
+                    case 8:
+                    {
+                        try 
+                        {
+                            a.salvaAzienda(nomeFileBinario);
+                            System.out.println("Dati salvati correttamente");
+                        } catch (IOException ex) 
+                        {
+                            System.out.println("Impossibile accedere al file in scrittura");
+                        }
+                        break;
+                     }
                 }
             }
             catch(InputMismatchException | NumberFormatException e1)

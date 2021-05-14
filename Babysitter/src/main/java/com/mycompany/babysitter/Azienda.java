@@ -6,6 +6,13 @@
 package com.mycompany.babysitter;
 
 import eccezioni.*;
+import file.TextFile;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -17,7 +24,7 @@ import java.time.LocalDateTime;
  * nInterventiPresenti è il numero di interventi presenti nell'array di interventi dell'azienda
  * @author Pc
  */
-public class Azienda
+public class Azienda implements Serializable
 {
     private final int N_MAX_INTERVENTI=1000;
     private Intervento[] elencoInterventi;
@@ -208,7 +215,7 @@ public class Azienda
     * @param cognome è il cognome della babysitter da cercare
     * @return ritorna elencoInterventiBabysitter che è un array di intervernti dell'azienda
     */
-    public String[] elencoInterventiBabysitter(String nome, String cognome)
+    public String[] elencoInterventiCronologiciBabysitter(String nome, String cognome)
     {
         int numeroInterventiBabysitter=0;
         Intervento intervento;
@@ -231,6 +238,22 @@ public class Azienda
         
         //istanzio un array lungo numeroInterventiBabysitter in cui inserisco gli interventi della babysitter
         int posizioneIntervento=0;
+        Intervento[] elencoInterventiCronologiciBabysitter=new Intervento[numeroInterventiBabysitter];
+        for(int i=0;i<getNumMaxInterventi();i++)
+        {
+            if(elencoInterventi[i]!=null)
+            {
+                intervento=getIntervento(i);
+                babysitter=intervento.getBabysitter();
+                if(babysitter.getNome().equalsIgnoreCase(nome) && babysitter.getCognome().equalsIgnoreCase(cognome))
+                {
+                    elencoInterventiCronologiciBabysitter[posizioneIntervento]=getIntervento(posizioneIntervento);
+                    posizioneIntervento++;
+                }  
+            }
+        }
+        posizioneIntervento=0;
+        elencoInterventiCronologiciBabysitter=Ordinatore.selectionSortInterventiCronologici(elencoInterventiCronologiciBabysitter);
         String[] elencoInterventiBabysitter=new String[numeroInterventiBabysitter];
         for(int i=0;i<getNumMaxInterventi();i++)
         {
@@ -240,7 +263,7 @@ public class Azienda
                 babysitter=intervento.getBabysitter();
                 if(babysitter.getNome().equalsIgnoreCase(nome) && babysitter.getCognome().equalsIgnoreCase(cognome))
                 {
-                    elencoInterventiBabysitter[posizioneIntervento]=intervento.toString();
+                    elencoInterventiBabysitter[posizioneIntervento]=elencoInterventiCronologiciBabysitter[i].toString();
                     posizioneIntervento++;
                 }  
             }
@@ -322,4 +345,48 @@ public class Azienda
         }
         return attaccato;
     }
+    public void esportaInterventiCSV(String filePathName) throws IOException, InterventiNonTrovati, FileException, InterventoNonTrovato
+    {
+        Intervento intervento;
+        String stringaIntervento;
+        TextFile f1= new TextFile(filePathName, 'W');
+        for (int i=0;i<nInterventiPresenti;i++)
+        {
+            
+           intervento=getIntervento(i);
+           if (intervento!=null)
+           {
+               stringaIntervento=intervento.getNomeCliente()+";"+intervento.getCognomeCliente()+";"+intervento.getIndirizzoCliente()+";"+intervento.getIdIntervento()+";"+intervento.getBabysitter()+";"+intervento.getInizio()+";"+intervento.getFine()+";"+intervento.isTerminato()+";";
+               f1.toFile(stringaIntervento);
+           }
+      }
+      f1.close(); 
+  }
+    public void salvaAzienda(String nomeFile) throws IOException
+    {   
+        FileOutputStream f1=new FileOutputStream(nomeFile);
+        ObjectOutputStream writer=new ObjectOutputStream(f1);
+        writer.writeObject(this);
+        writer.flush();
+        writer.close();   
+    }
+  
+  public Azienda caricaAzienda(String nomeFile) throws IOException, FileException
+  {
+    Azienda a;
+    FileInputStream f1=new FileInputStream(nomeFile);
+    ObjectInputStream reader=new ObjectInputStream(f1);
+
+    try 
+    {
+        a=(Azienda)reader.readObject();
+        reader.close();
+        return a;
+    } 
+    catch (ClassNotFoundException ex) 
+    {
+        reader.close();
+        throw new FileException("Errore di lettura");
+    }   
+  }
 }

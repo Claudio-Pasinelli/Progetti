@@ -5,6 +5,8 @@
  */
 package com.mycompany.babysitter;
 
+import java.io.Serializable;
+
 /**
  * La classe rappresenta una babysitter.<br>
  * I suoi suoi attributi sono:<br>
@@ -12,7 +14,7 @@ package com.mycompany.babysitter;
  * cognome
  * @author Pc
  */
-public class Babysitter
+public class Babysitter implements Serializable
 {
     private String nome;
     private String cognome;
