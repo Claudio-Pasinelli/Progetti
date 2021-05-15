@@ -3,7 +3,9 @@ com\mycompany\babysitter\Intervento.class
 com\mycompany\babysitter\Ordinatore.class
 com\mycompany\babysitter\Babysitter.class
 com\mycompany\babysitter\Main.class
+eccezioni\BabysitterOccupata.class
 eccezioni\FileException.class
 eccezioni\ImpossibileTerminareIntervento.class
 file\TextFile.class
+eccezioni\MaxInterventiRaggiunto.class
 eccezioni\InterventiNonTrovati.class

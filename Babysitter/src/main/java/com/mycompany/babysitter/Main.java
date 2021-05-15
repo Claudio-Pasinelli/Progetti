@@ -18,7 +18,7 @@ import java.util.*;
 public class Main
 {
     static Scanner tastiera=new Scanner(System.in);
-    public static void main(String[] args) throws InterventoNonTrovato, InterventiNonTrovati, ImpossibileTerminareIntervento, InterventoGiaTerminato
+    public static void main(String[] args) throws InterventoNonTrovato, InterventiNonTrovati, ImpossibileTerminareIntervento, InterventoGiaTerminato, MaxInterventiRaggiunto, BabysitterOccupata
     {
         long idProssimoIntervento=1;
         Babysitter babysitter;
@@ -82,7 +82,7 @@ public class Main
                         tastiera.nextLine();
                         break;
                     }
-                    case 1: //aggiungi intervento
+                    case 1: //aggiungi intervento (c'è il seguente controllo: la babysitter inserita è già occupata in quell'orario?)
                     {
                         boolean dataCorretta;
                         System.out.println("Nome del cliente --> ");
@@ -157,6 +157,14 @@ public class Main
                         catch (DateTimeException ex)
                         {
                             System.out.println("Hai inserito una data errata.");
+                        }
+                        catch (BabysitterOccupata e1)
+                        {
+                            System.out.println(e1.toString());
+                        }
+                        catch (MaxInterventiRaggiunto e2)
+                        {
+                            System.out.println(e2.toString());
                         }
                         break;
                     }

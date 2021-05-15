@@ -1,5 +1,1 @@
-asd;asd;asd;1;asd asd;2021-05-16T18:30;2021-05-16T20:30;true;
-asd;asd;asd;2;asd asd;2021-05-17T18:30;2021-05-17T20:30;true;
-asd;asd;asd;3;asd asd;2021-05-18T18:30;2021-05-18T20:30;false;
-asd;asd;asd;4;asd asd;2021-05-20T18:30;2021-05-20T20:30;false;
-asd;asd;asd;5;asd asd;2021-05-16T20:30;2021-05-16T23:30;true;
+claudio;pasinelli;asdf;1;alice de bernardin;2021-05-17T18:30;2021-05-17T20:30;true;

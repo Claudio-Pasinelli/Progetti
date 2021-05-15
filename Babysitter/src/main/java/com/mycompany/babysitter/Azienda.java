@@ -146,20 +146,37 @@ public class Azienda implements Serializable
     /**
      * Metodo usato per aggiungere un nuovo intervento all'array di interventi dell'azienda
      * @param t pè l'intervento da aggiungere all'interno dell'array di interventi dell'azienda
-     * @return -1 se il numero di interventi presenti nell'array di interventi dell'azienda sono arrivati al massimo (N_MAX_INTERVENTI=1000)
-     * @return 0 se l'aggiunta dell'intervento è andata a buon fine
+     * @throws MaxInterventiRaggiunto il numero massimo di interventi dell'array di interventi dell'azienda è stato raggiunto
+     * @throws BabysitterOccupata la babysitter è già occupata
      */
-    public int aggiungiIntervento(Intervento t)
+    public void aggiungiIntervento(Intervento t) throws MaxInterventiRaggiunto, BabysitterOccupata
     {
+        Intervento intervento;
+        Babysitter babysitter;
+        LocalDateTime inizioData;
+        
         if (nInterventiPresenti>=N_MAX_INTERVENTI)
-            return -1;
+            throw new eccezioni.MaxInterventiRaggiunto("L'archivio dell'azienda ha raggiunto il numero massimo di interventi memorizzabili (1000)");
+        for(int i=0; i<nInterventiPresenti;i++)
+        {
+            if(elencoInterventi[i]!=null)
+            {
+                intervento=getIntervento(i);
+                if(intervento.getInizio().isBefore(t.getInizio()))
+                {
+                    babysitter=intervento.getBabysitter();
+                    inizioData=intervento.getInizio();
+                    throw new eccezioni.BabysitterOccupata(babysitter,inizioData);
+                }
+            }
+        }
         elencoInterventi[nInterventiPresenti]=new Intervento(t);
         nInterventiPresenti++;
-        return 0;         
     }
     /**
      * Metodo usato per cancellare un intervento tramite il suo id
      * @param id è il codice dell'intervento
+     * @return 0 se l'intervento è stato eliminato correttamente
      */
     public int eliminaIntervento(long id) throws InterventoNonTrovato, InterventiNonTrovati
     {
@@ -186,7 +203,7 @@ public class Azienda implements Serializable
     /**
      * Metodo usato per eliminare tutti gli interventi antecedenti ad una determinata data 
      * @param dataLimite è la data entro la quale tutti gli interventi antecedenti vengono eliminati
-     * @return
+     * @return 0 se l'eliminazione degli interventi è andata a buon fine
      * @throws InterventiNonTrovati eccezione che avviene quando non si trovano gli interventi da eliminare
      */
     public int eliminaInterventoDataAntecedente(LocalDate dataLimite) throws InterventiNonTrovati
@@ -225,7 +242,7 @@ public class Azienda implements Serializable
     /**
      * Metodo usato per eliminare tutti gli interventi che si trovano in una determinata data 
      * @param dataCercata è la data i cui interventi devono essere eliminati
-     * @return
+     * @return 0 se l'eliminazione degli interventi è andata a buon fine
      * @throws InterventiNonTrovati eccezione che avviene quando non si trovano gli interventi da eliminare
      */
     public int eliminaInterventoDataUguale(LocalDate dataCercata) throws InterventiNonTrovati
@@ -518,6 +535,14 @@ public class Azienda implements Serializable
         }
         return attaccato;
     }
+    /**
+     * Metodo che permette di esportare gli interventi da un file di testo in formato CSV
+     * @param filePathName è il nome del file di testo
+     * @throws IOException
+     * @throws InterventiNonTrovati
+     * @throws FileException
+     * @throws InterventoNonTrovato 
+     */
     public void esportaInterventiCSV(String filePathName) throws IOException, InterventiNonTrovati, FileException, InterventoNonTrovato
     {
         Intervento intervento;
@@ -534,7 +559,12 @@ public class Azienda implements Serializable
            }
       }
       f1.close(); 
-  }
+    }
+    /**
+     * Metodo che permette il salvataggio degli interventi su un file binario
+     * @param nomeFile è il nome del file binario su cui vengono salvati gli interventi
+     * @throws IOException 
+     */
     public void salvaAzienda(String nomeFile) throws IOException
     {   
         FileOutputStream f1=new FileOutputStream(nomeFile);
@@ -543,23 +573,29 @@ public class Azienda implements Serializable
         writer.flush();
         writer.close();   
     }
-  
-  public Azienda caricaAzienda(String nomeFile) throws IOException, FileException
-  {
-    Azienda a;
-    FileInputStream f1=new FileInputStream(nomeFile);
-    ObjectInputStream reader=new ObjectInputStream(f1);
+    /**
+     * Metodo che permette il caricamento degli interventi da un file binario
+     * @param nomeFile è il nome del file binario
+     * @return a è l'azienda contenente l'array di interventi dell'azienda
+     * @throws IOException
+     * @throws FileException 
+     */
+    public Azienda caricaAzienda(String nomeFile) throws IOException, FileException
+    {
+        Azienda a;
+        FileInputStream f1=new FileInputStream(nomeFile);
+        ObjectInputStream reader=new ObjectInputStream(f1);
 
-    try 
-    {
-        a=(Azienda)reader.readObject();
-        reader.close();
-        return a;
-    } 
-    catch (ClassNotFoundException ex) 
-    {
-        reader.close();
-        throw new FileException("Errore di lettura");
-    }   
-  }
+        try 
+        {
+            a=(Azienda)reader.readObject();
+            reader.close();
+            return a;
+        } 
+        catch (ClassNotFoundException ex) 
+        {
+            reader.close();
+            throw new FileException("Errore di lettura");
+        }   
+    }
 }
