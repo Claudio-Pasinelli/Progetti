@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>920</y>
+      <w>410</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Babysitter
+--
+-String: nome
+-String: cognome
+--
++Babysitter(in: String nome, String cognome)
++Babysitter(in: Babysitter babysitter)
++Babysitter()
+-getCognome():String
+-getNome():String
+-setCognome(in: String cognome)
+-setNome(in: String nome)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>510</y>
+      <w>1590</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Intervento
+--
+-String: nomeCliente
+-String: cognomeCliente
+-String: indirizzoCliente
+-long idIntervento
+-Babysitter babysitter;
+-LocalDateTime inizio
+-LocalDateTime fine
+-boolean terminato
+--
++Intervento(in: String nomeCliente, String cognomeCliente, String indizirroCliente, long id, Babysitter b1, int annoInizio, int meseInizio, int giornoInizio, int oraInizio, int minutiInizio int annoFine, int meseFine, int giornoFine, int oraFine, int minutiFine)
++Intervento(in: Intervento intervento)
++Intervento()
+-getCognomeCliente():String
+-getNomeCliente():String
+-getIndirizzoCliente():String
+-getFine():LocalDateTime
+-getInizio():LocalDateTime
+-setCognomeCliente(in: String cognome)
+-setNomeCliente(in: String nome)
+-setIndirizzoCliente(in: String nome)</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
