@@ -130,6 +130,20 @@ public class Azienda implements Serializable
             return null;
     }
     /**
+     * Metodo che ritorna l'id dell'ultimo intervento dell'array di interventi dell'azienda
+     * @return id è l'id dell'ultimo intervento dell'array di interventi dell'azienda
+     */
+    public long getIdUltimoIntervento()
+    {
+        long id=1;
+        for(int i=0;i<nInterventiPresenti;i++)
+        {
+            if(elencoInterventi[i]!=null)
+                id=elencoInterventi[i].getIdIntervento();
+        }
+        return id;
+    }
+    /**
      * Metodo usato per aggiungere un nuovo intervento all'array di interventi dell'azienda
      * @param t pè l'intervento da aggiungere all'interno dell'array di interventi dell'azienda
      * @return -1 se il numero di interventi presenti nell'array di interventi dell'azienda sono arrivati al massimo (N_MAX_INTERVENTI=1000)
@@ -169,24 +183,183 @@ public class Azienda implements Serializable
         }
         throw new eccezioni.InterventoNonTrovato(id);
     }
-
+    /**
+     * Metodo usato per eliminare tutti gli interventi antecedenti ad una determinata data 
+     * @param dataLimite è la data entro la quale tutti gli interventi antecedenti vengono eliminati
+     * @return
+     * @throws InterventiNonTrovati eccezione che avviene quando non si trovano gli interventi da eliminare
+     */
+    public int eliminaInterventoDataAntecedente(LocalDate dataLimite) throws InterventiNonTrovati
+    {
+        LocalDate dataIntervento;
+        boolean interventiEliminati=false;
+        Intervento intervento;
+        
+        if(this.getNumMaxInterventi()==0)
+            throw new eccezioni.InterventiNonTrovati();
+        
+        for(int i=0;i<nInterventiPresenti;i++)
+        {
+            if(elencoInterventi[i]!=null)
+            {
+                intervento=getIntervento(i);
+                dataIntervento=intervento.getInizioCorto();
+                if(dataIntervento.isBefore(dataLimite))
+                {
+                    for(int j=i;j<nInterventiPresenti-1;j++)
+                    {
+                        elencoInterventi[j]=elencoInterventi[j+1];
+                    }
+                    elencoInterventi[nInterventiPresenti-1]=null;
+                    nInterventiPresenti--;
+                    interventiEliminati=true;
+                    i--;
+                }
+            }
+        }
+        if(interventiEliminati)
+            return 0;
+        else
+            throw new eccezioni.InterventiNonTrovati();
+    }
+    /**
+     * Metodo usato per eliminare tutti gli interventi che si trovano in una determinata data 
+     * @param dataCercata è la data i cui interventi devono essere eliminati
+     * @return
+     * @throws InterventiNonTrovati eccezione che avviene quando non si trovano gli interventi da eliminare
+     */
+    public int eliminaInterventoDataUguale(LocalDate dataCercata) throws InterventiNonTrovati
+    {
+        LocalDate dataIntervento;
+        boolean interventiEliminati=false;
+        Intervento intervento;
+        
+        if(this.getNumMaxInterventi()==0)
+            throw new eccezioni.InterventiNonTrovati();
+        
+        for(int i=0;i<nInterventiPresenti;i++)
+        {
+            if(elencoInterventi[i]!=null)
+            {
+                intervento=getIntervento(i);
+                dataIntervento=intervento.getInizioCorto();
+                if(dataIntervento.equals(dataCercata))
+                {
+                    for(int j=i;j<nInterventiPresenti-1;j++)
+                    {
+                        elencoInterventi[j]=elencoInterventi[j+1];
+                    }
+                    elencoInterventi[nInterventiPresenti-1]=null;
+                    nInterventiPresenti--;
+                    interventiEliminati=true;
+                    i--;
+                }
+            }
+        }
+        if(interventiEliminati)
+            return 0;
+        else
+            throw new eccezioni.InterventiNonTrovati();
+    }
     /**
      * Metodo usato per impostare a true l'attributo boolean dell'intervento cercato contenuto nell'array di interventi dell'azienda tramite un id
-     * @param idIntervento è l'id, codice univoco dell'intervento da andare a terminare
-     * @return -1 se l'intervento non è stato trovato
-     * @return -2 se l'intervento cercato è già stato terminato
-     * @return 0 per confermare che la terminazione dell'intervento è andata a buon fine
+     * @param idIntervento
+     * @throws ImpossibileTerminareIntervento eccezione che avviene quando l'intervento richiesto per la terminazione non è stato trovato
+     * @throws InterventoGiaTerminato eccezione che avviene quando l'intervento richiesto per la terminazione è già stato terminato
      */
-    public int modificaStatusIntervento(long idIntervento)
+    public void modificaStatusIntervento(long idIntervento) throws ImpossibileTerminareIntervento, InterventoGiaTerminato
     {
         int posizioneInterventoArray;
         posizioneInterventoArray=posizioneIntervento(idIntervento);
         if (posizioneInterventoArray==-1)
-            return -1;
+            throw new eccezioni.ImpossibileTerminareIntervento(idIntervento, "\nNon è stato possibile terminare l'intervento numero: "+idIntervento);
         else if(elencoInterventi[posizioneInterventoArray].isTerminato())
-            return -2;
+            throw new eccezioni.InterventoGiaTerminato(idIntervento,"\nL'intervento: "+idIntervento+" è già stato terminato.");
         elencoInterventi[posizioneInterventoArray].setTerminato(true);
-        return 0;      
+    }
+    /**
+     * Metodo usato per terminare tutti gli interventi antecedenti ad una determinata data 
+     * @param dataLimite è la data entro la quale tutti gli interventi antecedenti vengono terminati
+     * @return 0 se gli interventi da terminate antecedenti alla data richiesta sono stati terminati correttamente
+     * @throws InterventiNonTrovati eccezione che avviene quando non si trovano gli interventi da terminare
+     * @throws ImpossibileTerminareIntervento eccezione che avviene quando non è stato possibile terminare gli interventi
+     */
+    public int terminaInterventoDataAntecedente(LocalDate dataLimite) throws InterventiNonTrovati, ImpossibileTerminareIntervento
+    {
+        LocalDate dataIntervento;
+        Intervento intervento;
+        boolean interventiTerminati=false;
+        int posizioneInterventoArray,annoIntervento,meseIntervento,giornoIntervento;
+        long idIntervento;
+        
+        if(this.getNumMaxInterventi()==0)
+            throw new eccezioni.InterventiNonTrovati();
+        
+        for(int i=0;i<nInterventiPresenti;i++)
+        {
+            if(elencoInterventi[i]!=null)
+            {
+                intervento=getIntervento(i);
+                dataIntervento=intervento.getInizioCorto();
+                if(dataIntervento.isBefore(dataLimite))
+                {
+                    idIntervento=intervento.getIdIntervento();
+                    dataIntervento=intervento.getInizioCorto();
+                    annoIntervento=dataIntervento.getYear();
+                    meseIntervento=dataIntervento.getMonthValue();
+                    giornoIntervento=dataIntervento.getDayOfMonth();
+                    posizioneInterventoArray=posizioneIntervento(idIntervento);
+                    elencoInterventi[posizioneInterventoArray].setTerminato(true);
+                    interventiTerminati=true;
+                }
+            }
+        }
+        if(interventiTerminati)
+            return 0;
+        else
+            throw new eccezioni.ImpossibileTerminareIntervento("\nNon è stato possibile terminare gli interventi antecedenti alla data: "+dataLimite.getDayOfMonth()+"/"+dataLimite.getMonthValue()+"/"+dataLimite.getYear());
+    }
+    /**
+     * Metodo usato per terminare tutti gli interventi non terminati in una precisa data
+     * @param dataLimite è la data in cui gli eventuali interventi non terminato verranno terminati
+     * @return 0 se gli interventi della data cercata sono stati terminati correttamente
+     * @throws InterventiNonTrovati eccezione che avviene quando non si trovano gli interventi da terminare
+     * @throws ImpossibileTerminareIntervento eccezione che avviene quando non è stato possibile terminare gli interventi
+     */
+    public int terminaInterventoDataUguale(LocalDate dataLimite) throws InterventiNonTrovati, ImpossibileTerminareIntervento
+    {
+        LocalDate dataIntervento;
+        Intervento intervento;
+        boolean interventiTerminati=false;
+        int posizioneInterventoArray,annoIntervento,meseIntervento,giornoIntervento;
+        long idIntervento;
+        
+        if(this.getNumMaxInterventi()==0)
+            throw new eccezioni.InterventiNonTrovati();
+        
+        for(int i=0;i<nInterventiPresenti;i++)
+        {
+            if(elencoInterventi[i]!=null)
+            {
+                intervento=getIntervento(i);
+                dataIntervento=intervento.getInizioCorto();
+                if(dataIntervento.equals(dataLimite))
+                {
+                    idIntervento=intervento.getIdIntervento();
+                    dataIntervento=intervento.getInizioCorto();
+                    annoIntervento=dataIntervento.getYear();
+                    meseIntervento=dataIntervento.getMonthValue();
+                    giornoIntervento=dataIntervento.getDayOfMonth();
+                    posizioneInterventoArray=posizioneIntervento(idIntervento);
+                    elencoInterventi[posizioneInterventoArray].setTerminato(true);
+                    interventiTerminati=true;
+                }
+            }
+        }
+        if(interventiTerminati)
+            return 0;
+        else
+            throw new eccezioni.ImpossibileTerminareIntervento("\nNon è stato possibile terminare gli interventi antecedenti alla data: "+dataLimite.getDayOfMonth()+"/"+dataLimite.getMonthValue()+"/"+dataLimite.getYear());
     }
     /**
      * Metodo privato che ritorna la posizione di un intervento contenuto nell'array di interventi dell'azienda

@@ -17,10 +17,10 @@ import java.util.*;
  */
 public class Main
 {
-    static long idProssimoIntervento=1;
     static Scanner tastiera=new Scanner(System.in);
-    public static void main(String[] args) throws InterventoNonTrovato, InterventiNonTrovati
+    public static void main(String[] args) throws InterventoNonTrovato, InterventiNonTrovati, ImpossibileTerminareIntervento, InterventoGiaTerminato
     {
+        long idProssimoIntervento=1;
         Babysitter babysitter;
         String nomeBabysitter;
         String cognomeBabysitter;
@@ -30,21 +30,26 @@ public class Main
         Intervento intervento=null;
         Azienda a=new Azienda();
         long idIntervento=0;
-        int annoInizio=2021, meseInizio=1, giornoInizio=1, oraInizio=18, minutiInizio=30;
-        int annoFine=2021, meseFine=1, giornoFine=2, oraFine=20, minutiFine=30;
+        int annoInizio, meseInizio, giornoInizio, oraInizio, minutiInizio;
+        int annoFine, meseFine, giornoFine, oraFine, minutiFine;
+        LocalDateTime oggi;
         String nomeFileTesto="InterventiAzienda.txt";
         String nomeFileBinario="Azienda.bin";
         
-        String[] elencoVociMenu= new String[9];
+        String[] elencoVociMenu= new String[13];
         elencoVociMenu[0]="Termina il programma";
         elencoVociMenu[1]="Aggiungi un intervento";
         elencoVociMenu[2]="Elimina un intervento";
-        elencoVociMenu[3]="Termina un intervento";
-        elencoVociMenu[4]="Visualizza tutti gli interventi dell'azienda";
-        elencoVociMenu[5]="Visualizza tutti gli interventi in ordine cronologico di una determinata babysitter";
-        elencoVociMenu[6]="Visualizza tutti gli interventi di una data";
-        elencoVociMenu[7]="Esporta i dati in un file di testo";
-        elencoVociMenu[8]="Salva i dati";
+        elencoVociMenu[3]="Elimina tutti gli interventi precedenti ad una data";
+        elencoVociMenu[4]="Elimina tutti gli interventi di una data";
+        elencoVociMenu[5]="Termina un intervento";
+        elencoVociMenu[6]="Termina tutti gli interventi precedenti ad una data";
+        elencoVociMenu[7]="Termina tutti gli interventi di una data";
+        elencoVociMenu[8]="Visualizza tutti gli interventi dell'azienda";
+        elencoVociMenu[9]="Visualizza tutti gli interventi in ordine cronologico di una determinata babysitter";
+        elencoVociMenu[10]="Visualizza tutti gli interventi di una data";
+        elencoVociMenu[11]="Esporta i dati in CSV";
+        elencoVociMenu[12]="Salva i dati";
         
         int sceltaUtente=-1, esitoOperazione;
         Menu menu=new Menu(elencoVociMenu);
@@ -52,6 +57,7 @@ public class Main
         try 
         {
             a=a.caricaAzienda(nomeFileBinario);
+            idProssimoIntervento=a.getIdUltimoIntervento()+1; //se ci dovessero essere degli interventi già salvati si andrebbe a prendere l'id dell'ultimo intervento memorizzato per poi incrementarlo di 1
             System.out.println("Dati caricati correttamente");
         } 
         catch (IOException ex) 
@@ -107,7 +113,11 @@ public class Main
                             if(dataCorretta)
                                 break;
                             else
-                                System.out.println("\nData d'inizio intervento non valida. Reinserire la data. "+giornoInizio+"/"+meseInizio+"/"+annoInizio+" - "+oraInizio+":"+minutiInizio+"\n");
+                            {
+                                oggi=LocalDateTime.now();
+                                System.out.println("\nLa data d'inizio intervento: "+giornoInizio+"/"+meseInizio+"/"+annoInizio+" - "+oraInizio+":"+minutiInizio+" non è valida.\nOggi è il: "+oggi.getDayOfMonth()+"/"+oggi.getMonthValue()+"/"+oggi.getYear()+" - "+oggi.getHour()+":"+oggi.getMinute());
+                            }
+                                
                         }while(!dataCorretta);
                         dataCorretta=false;
                         //data fine
@@ -127,7 +137,7 @@ public class Main
                             if(dataCorretta)
                                 break;
                             else
-                                System.out.println("\nData di fine intervento non valida. Reinserire la data. "+giornoFine+"/"+meseFine+"/"+annoFine+" - "+oraFine+":"+minutiFine+"\n");
+                                System.out.println("\nData di fine intervento: "+giornoFine+"/"+meseFine+"/"+annoFine+" - "+oraFine+":"+minutiFine+" non è valida. Reinserire la data.");
                         }while(!dataCorretta);
                         try
                         {
@@ -172,29 +182,111 @@ public class Main
                         tastiera.nextLine();
                         break;
                     }
-                    case 3: //termina intervento (deve essere ancora attivo)
+                    case 3: //elimina tutti gli interventi precedenti ad una determianta data
                     {
-                        System.out.println("Inserisci il codice dell'intervento da terminare --> ");
-                        idIntervento=tastiera.nextInt();
-                        esitoOperazione=a.modificaStatusIntervento(idIntervento);
-                        if(esitoOperazione==-1)
+                        boolean dataCorretta;
+                        LocalDate dataLimite;
+                        int contatoreTentativi=2;
+                        do
                         {
-                            System.out.println("Non è stato possibile terminare l'intervento numero: "+idIntervento);
-                            System.out.println("Premi un pulsante per continuare.");
-                            tastiera.nextLine();
-                            tastiera.nextLine();
-                            break;
+                            System.out.println("Anno dell'intervento --> ");
+                            annoInizio=tastiera.nextInt();
+                            System.out.println("Mese dell'intervento --> ");
+                            meseInizio=tastiera.nextInt();
+                            System.out.println("Giorno dell'intervento --> ");
+                            giornoInizio=tastiera.nextInt();
+                            dataCorretta=isDataValida(giornoInizio,meseInizio,annoInizio);
+                            if(dataCorretta)
+                                break;
+                            else
+                            {
+                                if(contatoreTentativi!=0)
+                                    System.out.println("\nLa data da te inserita per la ricerca degli interventi: \""+giornoInizio+"/"+meseInizio+"/"+annoInizio+"\" non è corretta. Reinserirla.");
+                                if(contatoreTentativi==1)
+                                    System.out.println("Hai ancora "+contatoreTentativi+" tentativo.\n");
+                                else if(contatoreTentativi>1)
+                                    System.out.println("Hai ancora "+contatoreTentativi+" tentativi.\n");
+                                else if(contatoreTentativi==0)
+                                    break;
+                                contatoreTentativi--;
+                            }
+                        }while(!dataCorretta && contatoreTentativi!=-1);
+                        try
+                        {
+                            dataLimite=LocalDate.of(annoInizio,meseInizio,giornoInizio);
+                            esitoOperazione=a.eliminaInterventoDataAntecedente(dataLimite);
+                            if(esitoOperazione==0)
+                                System.out.println("Tutti gli interventi precedenti alla data: \""+giornoInizio+"/"+meseInizio+"/"+annoInizio+"\" sono stati eliminati");
                         }
-                        else if(esitoOperazione==-2)
+                        catch(InterventiNonTrovati e1)
                         {
-                            System.out.println("L'intervento: "+idIntervento+" è già stato terminato.");
-                            System.out.println("Premi un pulsante per continuare.");
-                            tastiera.nextLine();
-                            tastiera.nextLine();
-                            break;
+                            System.out.println(e1.toString());
                         }
-                        else
+                        catch(DateTimeException e2)
                         {
+                            System.out.println("\nLa data da te inserita per la ricerca degli interventi: \""+giornoInizio+"/"+meseInizio+"/"+annoInizio+"\" non è corretta. Reinserirla.");
+                        }
+                        System.out.println("Premi un pulsante per continuare.");
+                        tastiera.nextLine();
+                        tastiera.nextLine();
+                        break;
+                    }
+                    case 4: //elimina tutti gli interventi di una determianta data
+                    {
+                        boolean dataCorretta;
+                        LocalDate dataLimite;
+                        int contatoreTentativi=2;
+                        do
+                        {
+                            System.out.println("Anno dell'intervento --> ");
+                            annoInizio=tastiera.nextInt();
+                            System.out.println("Mese dell'intervento --> ");
+                            meseInizio=tastiera.nextInt();
+                            System.out.println("Giorno dell'intervento --> ");
+                            giornoInizio=tastiera.nextInt();
+                            dataCorretta=isDataValida(giornoInizio,meseInizio,annoInizio);
+                            if(dataCorretta)
+                                break;
+                            else
+                            {
+                                if(contatoreTentativi!=0)
+                                    System.out.println("\nLa data da te inserita per la ricerca degli interventi: \""+giornoInizio+"/"+meseInizio+"/"+annoInizio+"\" non è corretta. Reinserirla.");
+                                if(contatoreTentativi==1)
+                                    System.out.println("Hai ancora "+contatoreTentativi+" tentativo.\n");
+                                else if(contatoreTentativi>1)
+                                    System.out.println("Hai ancora "+contatoreTentativi+" tentativi.\n");
+                                else if(contatoreTentativi==0)
+                                    break;
+                                contatoreTentativi--;
+                            }
+                        }while(!dataCorretta && contatoreTentativi!=-1);
+                        try
+                        {
+                            dataLimite=LocalDate.of(annoInizio,meseInizio,giornoInizio);
+                            esitoOperazione=a.eliminaInterventoDataUguale(dataLimite);
+                            if(esitoOperazione==0)
+                                System.out.println("Tutti gli interventi in data: \""+giornoInizio+"/"+meseInizio+"/"+annoInizio+"\" sono stati eliminati");
+                        }
+                        catch(InterventiNonTrovati e1)
+                        {
+                            System.out.println(e1.toString());
+                        }
+                        catch(DateTimeException e2)
+                        {
+                            System.out.println("\nLa data da te inserita per la ricerca degli interventi: \""+giornoInizio+"/"+meseInizio+"/"+annoInizio+"\" non è corretta. Reinserirla.");
+                        }
+                        System.out.println("Premi un pulsante per continuare.");
+                        tastiera.nextLine();
+                        tastiera.nextLine();
+                        break;
+                    }
+                    case 5: //termina intervento (deve essere ancora attivo)
+                    {
+                        try
+                        {
+                            System.out.println("Inserisci il codice dell'intervento da terminare --> ");
+                            idIntervento=tastiera.nextInt();
+                            a.modificaStatusIntervento(idIntervento);
                             System.out.println("L'intervento: "+idIntervento+" è stato terminato.");
                             System.out.println(a.getIntervento(idIntervento));
                             System.out.println("Premi un pulsante per continuare.");
@@ -202,13 +294,143 @@ public class Main
                             tastiera.nextLine();
                             break;
                         }
+                        catch(InterventoGiaTerminato e1)
+                        {
+                            System.out.println(e1.toString());
+                            System.out.println("Premi un pulsante per continuare.");
+                            tastiera.nextLine();
+                            tastiera.nextLine();
+                            break;
+                        }
+                        catch(ImpossibileTerminareIntervento e2)
+                        {
+                            System.out.println(e2.toString());
+                            System.out.println("Premi un pulsante per continuare.");
+                            tastiera.nextLine();
+                            tastiera.nextLine();
+                            break;
+                        }
                     }
-                    case 4: //elenco di tutti gli interventi dell'azienda
+                    case 6: //termina tutti gli interventi antecedenti ad una determianta data
+                    {
+                        boolean dataCorretta;
+                        LocalDate dataLimite;
+                        int contatoreTentativi=2;
+                        do
+                        {
+                            System.out.println("Anno dell'intervento --> ");
+                            annoInizio=tastiera.nextInt();
+                            System.out.println("Mese dell'intervento --> ");
+                            meseInizio=tastiera.nextInt();
+                            System.out.println("Giorno dell'intervento --> ");
+                            giornoInizio=tastiera.nextInt();
+                            dataCorretta=isDataValida(giornoInizio,meseInizio,annoInizio);
+                            if(dataCorretta)
+                                break;
+                            else
+                            {
+                                if(contatoreTentativi!=0)
+                                    System.out.println("\nLa data da te inserita per la ricerca degli interventi: \""+giornoInizio+"/"+meseInizio+"/"+annoInizio+"\" non è corretta. Reinserirla.");
+                                if(contatoreTentativi==1)
+                                    System.out.println("Hai ancora "+contatoreTentativi+" tentativo.\n");
+                                else if(contatoreTentativi>1)
+                                    System.out.println("Hai ancora "+contatoreTentativi+" tentativi.\n");
+                                else if(contatoreTentativi==0)
+                                    break;
+                                contatoreTentativi--;
+                            }
+                        }while(!dataCorretta && contatoreTentativi!=-1);
+                        try
+                        {
+                            dataLimite=LocalDate.of(annoInizio,meseInizio,giornoInizio);
+                            esitoOperazione=a.terminaInterventoDataAntecedente(dataLimite);
+                            if(esitoOperazione==0)
+                                System.out.println("Tutti gli interventi precedenti alla data: \""+giornoInizio+"/"+meseInizio+"/"+annoInizio+"\" sono stati terminati");
+                        }
+                        catch(InterventiNonTrovati e1)
+                        {
+                            System.out.println(e1.toString());
+                        }
+                        catch(ImpossibileTerminareIntervento e2)
+                        {
+                            System.out.println(e2.toString());
+                            System.out.println("Premi un pulsante per continuare.");
+                            tastiera.nextLine();
+                            tastiera.nextLine();
+                            break;
+                        }
+                        catch(DateTimeException e3)
+                        {
+                            System.out.println("\nLa data da te inserita per la ricerca degli interventi: \""+giornoInizio+"/"+meseInizio+"/"+annoInizio+"\" non è corretta. Reinserirla.");
+                        }
+                        System.out.println("Premi un pulsante per continuare.");
+                        tastiera.nextLine();
+                        tastiera.nextLine();
+                        break;
+                    }
+                    case 7: //termina tutti gli interventi di una determianta data
+                    {
+                        boolean dataCorretta;
+                        LocalDate dataLimite;
+                        int contatoreTentativi=2;
+                        do
+                        {
+                            System.out.println("Anno dell'intervento --> ");
+                            annoInizio=tastiera.nextInt();
+                            System.out.println("Mese dell'intervento --> ");
+                            meseInizio=tastiera.nextInt();
+                            System.out.println("Giorno dell'intervento --> ");
+                            giornoInizio=tastiera.nextInt();
+                            dataCorretta=isDataValida(giornoInizio,meseInizio,annoInizio);
+                            if(dataCorretta)
+                                break;
+                            else
+                            {
+                                if(contatoreTentativi!=0)
+                                    System.out.println("\nLa data da te inserita per la ricerca degli interventi: \""+giornoInizio+"/"+meseInizio+"/"+annoInizio+"\" non è corretta. Reinserirla.");
+                                if(contatoreTentativi==1)
+                                    System.out.println("Hai ancora "+contatoreTentativi+" tentativo.\n");
+                                else if(contatoreTentativi>1)
+                                    System.out.println("Hai ancora "+contatoreTentativi+" tentativi.\n");
+                                else if(contatoreTentativi==0)
+                                    break;
+                                contatoreTentativi--;
+                            }
+                        }while(!dataCorretta && contatoreTentativi!=-1);
+                        try
+                        {
+                            dataLimite=LocalDate.of(annoInizio,meseInizio,giornoInizio);
+                            esitoOperazione=a.terminaInterventoDataUguale(dataLimite);
+                            if(esitoOperazione==0)
+                                System.out.println("Tutti gli interventi in data: \""+giornoInizio+"/"+meseInizio+"/"+annoInizio+"\" sono stati terminati");
+                        }
+                        catch(InterventiNonTrovati e1)
+                        {
+                            System.out.println(e1.toString());
+                        }
+                        catch(ImpossibileTerminareIntervento e2)
+                        {
+                            System.out.println(e2.toString());
+                            System.out.println("Premi un pulsante per continuare.");
+                            tastiera.nextLine();
+                            tastiera.nextLine();
+                            break;
+                        }
+                        catch(DateTimeException e3)
+                        {
+                            System.out.println("\nLa data da te inserita per la ricerca degli interventi: \""+giornoInizio+"/"+meseInizio+"/"+annoInizio+"\" non è corretta. Reinserirla.");
+                        }
+                        System.out.println("Premi un pulsante per continuare.");
+                        tastiera.nextLine();
+                        tastiera.nextLine();
+                        break;
+                    }
+                    case 8: //elenco di tutti gli interventi dell'azienda
                     {
                         System.out.println(a.elencoInterventi());
                         break;
                     }
-                    case 5: //elenco di tutti gli interventi di una determinata babysitter (da rivedere)
+                    case 9: //elenco di tutti gli interventi in ordine cronologico di una determinata babysitter
                     {
                         System.out.println("Inserisci il nome della babysitter da cercare --> ");
                         nomeBabysitter=tastiera.nextLine();
@@ -226,7 +448,7 @@ public class Main
                         tastiera.nextLine();
                         break;
                     }
-                    case 6: //elenco di tutti gli interventi di una determinata data
+                    case 10: //elenco di tutti gli interventi di una determinata data
                     {
                         boolean dataCorretta;
                         int contatoreTentativi=2;
@@ -238,7 +460,7 @@ public class Main
                             meseInizio=tastiera.nextInt();
                             System.out.println("Giorno dell'intervento --> ");
                             giornoInizio=tastiera.nextInt();
-                            dataCorretta=isDataValida(giornoInizio,meseInizio,annoInizio,oraInizio,minutiInizio);
+                            dataCorretta=isDataValida(giornoInizio,meseInizio,annoInizio);
                             if(dataCorretta)
                                 break;
                             else
@@ -274,7 +496,7 @@ public class Main
                         }
                         break;
                     }
-                    case 7:
+                    case 11:
                     {
                         try
                         {
@@ -291,7 +513,7 @@ public class Main
                         }
                         break;
                     }
-                    case 8:
+                    case 12:
                     {
                         try 
                         {
@@ -323,6 +545,27 @@ public class Main
         if(ora<0 || ora >23)
             return false;
         if(minuti<0 || minuti>59)
+            return false;
+        
+        else
+        {
+            LocalDateTime oggi,dataInserita;
+
+            oggi=LocalDateTime.now();
+            dataInserita=LocalDateTime.of(anno,mese,giorno,ora,minuti);
+            if(dataInserita.isBefore(oggi))
+                return false;
+            else
+                return true;
+        }
+    }
+    private static boolean isDataValida(int giorno, int mese, int anno)
+    {
+        if(giorno<0 || giorno>31)
+            return false;
+        if(mese<0 || mese>12)
+            return false;
+        if(anno<0 || anno>9999)
             return false;
         else
             return true;

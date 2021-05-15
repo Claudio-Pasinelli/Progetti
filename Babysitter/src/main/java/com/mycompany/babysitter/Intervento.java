@@ -8,6 +8,7 @@ package com.mycompany.babysitter;
 import eccezioni.DateException;
 import java.io.Serializable;
 import java.time.DateTimeException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -253,6 +254,16 @@ public class Intervento implements Serializable
      */
     public LocalDateTime getInizio() {
         return inizio;
+    }
+    public LocalDate getInizioCorto()
+    {
+        LocalDate inizioCorto;
+        int anno, mese, giorno;
+        anno=inizio.getYear();
+        mese=inizio.getMonthValue();
+        giorno=inizio.getDayOfMonth();
+        inizioCorto=LocalDate.of(anno,mese,giorno);
+        return inizioCorto;
     }
     /**
      * Metodo usato per ottenere la data in cui finisce l'intervento
