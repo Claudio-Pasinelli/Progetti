@@ -162,16 +162,27 @@ public class Azienda implements Serializable
             if(elencoInterventi[i]!=null)
             {
                 intervento=getIntervento(i);
-                if(intervento.getInizio().isBefore(t.getInizio()))
+                babysitter=intervento.getBabysitter();
+                if(babysitter.equals(t.getBabysitter()))
                 {
-                    babysitter=intervento.getBabysitter();
-                    inizioData=intervento.getInizio();
-                    throw new eccezioni.BabysitterOccupata(babysitter,inizioData);
+                   if(isBabysitterOccupata(intervento,t))
+                   {
+                       inizioData=intervento.getInizio();
+                       throw new eccezioni.BabysitterOccupata(babysitter,inizioData);
+                   } 
                 }
+                
             }
         }
         elencoInterventi[nInterventiPresenti]=new Intervento(t);
         nInterventiPresenti++;
+    }
+    private boolean isBabysitterOccupata(Intervento t1, Intervento t2)
+    {
+        if((t1.getInizio().isAfter(t2.getInizio()) && t1.getInizio().isBefore(t2.getFine())) || (t1.getFine().isAfter(t2.getInizio()) && t1.getFine().isBefore(t2.getFine())) || (t1.getInizio().isBefore(t2.getInizio()) && t1.getFine().isAfter(t2.getFine())))
+            return true;
+        else
+            return false;
     }
     /**
      * Metodo usato per cancellare un intervento tramite il suo id
@@ -399,7 +410,7 @@ public class Azienda implements Serializable
         }
         return -1;  //intervento non presente
     }
-        /**
+    /**
     * Metodo che ritorna tutti gli eventuali interventi di una babysitter specificata.<br>
     * @param nome è il nome della babysitter da cercare
     * @param cognome è il cognome della babysitter da cercare
@@ -445,7 +456,7 @@ public class Azienda implements Serializable
         posizioneIntervento=0;
         elencoInterventiCronologiciBabysitter=Ordinatore.selectionSortInterventiCronologici(elencoInterventiCronologiciBabysitter);
         String[] elencoInterventiBabysitter=new String[numeroInterventiBabysitter];
-        for(int i=0;i<getNumMaxInterventi();i++)
+        for(int i=0;i<elencoInterventiCronologiciBabysitter.length;i++)
         {
             if(elencoInterventi[i]!=null)
             {

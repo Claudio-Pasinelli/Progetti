@@ -31,6 +31,6 @@ public class BabysitterOccupata extends Exception
         giorno=inizio.getDayOfMonth();
         ora=inizio.getHour();
         minuti=inizio.getMinute();
-        return "\nLa babysitter \""+babysitter.toString()+"\" è già occupata in data: "+giorno+"/"+mese+"/"+anno+" - "+ora+":"+minuti+"\n";
+        return "\nLa babysitter \""+babysitter.toString()+"\" è già occupata in data: "+giorno+"/"+mese+"/"+anno+" - "+ora+":"+minuti;
     }
 }

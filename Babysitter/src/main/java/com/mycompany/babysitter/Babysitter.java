@@ -88,4 +88,11 @@ public class Babysitter implements Serializable
         attaccato=attaccato+getNome()+" "+getCognome();
         return attaccato;
     }
+    public boolean equals(Object o)
+    {
+        Babysitter babysitter=(Babysitter)o;
+        if(getNome().equalsIgnoreCase(babysitter.getNome()) && getCognome().equalsIgnoreCase(babysitter.getCognome()))
+            return true;
+        return false;
+    }
 }

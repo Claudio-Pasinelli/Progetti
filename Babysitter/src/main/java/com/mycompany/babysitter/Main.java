@@ -450,10 +450,11 @@ public class Main
                         else
                         {
                             for(int i=0; i<elencoRicerca.length;i++)
-                                System.out.println(elencoRicerca[i].toString());
+                                System.out.println(elencoRicerca[i]);
                         }
                         System.out.println("Premi un pulsante per continuare.");
                         tastiera.nextLine();
+                        elencoRicerca=null;
                         break;
                     }
                     case 10: //elenco di tutti gli interventi di una determinata data
@@ -554,6 +555,8 @@ public class Main
             return false;
         if(minuti<0 || minuti>59)
             return false;
+        if(giorno==0 && mese==0 && anno==0 && ora==0 && minuti==0)
+            return false;
         
         else
         {
@@ -574,6 +577,8 @@ public class Main
         if(mese<0 || mese>12)
             return false;
         if(anno<0 || anno>9999)
+            return false;
+        if(giorno==0 && mese==0 && anno==0)
             return false;
         else
             return true;
