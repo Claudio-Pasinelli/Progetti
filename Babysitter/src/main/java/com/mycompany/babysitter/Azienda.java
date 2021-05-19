@@ -414,7 +414,7 @@ public class Azienda implements Serializable
     * Metodo che ritorna tutti gli eventuali interventi di una babysitter specificata.<br>
     * @param nome è il nome della babysitter da cercare
     * @param cognome è il cognome della babysitter da cercare
-    * @return ritorna elencoInterventiBabysitter che è un array di intervernti dell'azienda
+    * @return elencoInterventiBabysitter è un array di intervernti dell'azienda
     */
     public String[] elencoInterventiCronologiciBabysitter(String nome, String cognome)
     {
@@ -448,7 +448,7 @@ public class Azienda implements Serializable
                 babysitter=intervento.getBabysitter();
                 if(babysitter.getNome().equalsIgnoreCase(nome) && babysitter.getCognome().equalsIgnoreCase(cognome))
                 {
-                    elencoInterventiCronologiciBabysitter[posizioneIntervento]=getIntervento(posizioneIntervento);
+                    elencoInterventiCronologiciBabysitter[posizioneIntervento]=getIntervento(i);
                     posizioneIntervento++;
                 }  
             }
@@ -462,11 +462,8 @@ public class Azienda implements Serializable
             {
                 intervento=getIntervento(i);
                 babysitter=intervento.getBabysitter();
-                if(babysitter.getNome().equalsIgnoreCase(nome) && babysitter.getCognome().equalsIgnoreCase(cognome))
-                {
-                    elencoInterventiBabysitter[posizioneIntervento]=elencoInterventiCronologiciBabysitter[i].toString();
-                    posizioneIntervento++;
-                }  
+                elencoInterventiBabysitter[posizioneIntervento]=elencoInterventiCronologiciBabysitter[i].toString();
+                posizioneIntervento++;
             }
         }
         return elencoInterventiBabysitter;

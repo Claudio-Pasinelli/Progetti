@@ -4,8 +4,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>130</x>
-      <y>610</y>
+      <x>1430</x>
+      <y>530</y>
       <w>80</w>
       <h>110</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>370</x>
-      <y>220</y>
+      <x>1670</x>
+      <y>140</y>
       <w>280</w>
       <h>70</h>
     </coordinates>
@@ -26,8 +26,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>370</x>
-      <y>300</y>
+      <x>1670</x>
+      <y>220</y>
       <w>280</w>
       <h>70</h>
     </coordinates>
@@ -37,8 +37,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>350</x>
-      <y>590</y>
+      <x>1650</x>
+      <y>510</y>
       <w>330</w>
       <h>90</h>
     </coordinates>
@@ -48,8 +48,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>360</x>
-      <y>470</y>
+      <x>1660</x>
+      <y>390</y>
       <w>270</w>
       <h>70</h>
     </coordinates>
@@ -59,8 +59,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>340</x>
-      <y>770</y>
+      <x>1640</x>
+      <y>690</y>
       <w>360</w>
       <h>90</h>
     </coordinates>
@@ -70,8 +70,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>350</x>
-      <y>680</y>
+      <x>1650</x>
+      <y>600</y>
       <w>360</w>
       <h>90</h>
     </coordinates>
@@ -82,8 +82,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>240</y>
+      <x>1460</x>
+      <y>160</y>
       <w>230</w>
       <h>420</h>
     </coordinates>
@@ -93,8 +93,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>320</y>
+      <x>1460</x>
+      <y>240</y>
       <w>230</w>
       <h>340</h>
     </coordinates>
@@ -104,8 +104,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>490</y>
+      <x>1460</x>
+      <y>410</y>
       <w>220</w>
       <h>170</h>
     </coordinates>
@@ -115,8 +115,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>620</y>
+      <x>1460</x>
+      <y>540</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -126,8 +126,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>630</y>
+      <x>1460</x>
+      <y>550</y>
       <w>210</w>
       <h>120</h>
     </coordinates>
@@ -137,8 +137,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>630</y>
+      <x>1460</x>
+      <y>550</y>
       <w>200</w>
       <h>210</h>
     </coordinates>
@@ -148,8 +148,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>310</x>
-      <y>170</y>
+      <x>1610</x>
+      <y>90</y>
       <w>740</w>
       <h>780</h>
     </coordinates>
@@ -159,8 +159,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>380</x>
-      <y>860</y>
+      <x>1680</x>
+      <y>780</y>
       <w>280</w>
       <h>70</h>
     </coordinates>
@@ -170,8 +170,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>630</y>
+      <x>1460</x>
+      <y>550</y>
       <w>240</w>
       <h>280</h>
     </coordinates>
@@ -181,8 +181,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>600</x>
-      <y>80</y>
+      <x>1900</x>
+      <y>0</y>
       <w>290</w>
       <h>50</h>
     </coordinates>
@@ -193,8 +193,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>690</x>
-      <y>250</y>
+      <x>1990</x>
+      <y>170</y>
       <w>350</w>
       <h>80</h>
     </coordinates>
@@ -204,8 +204,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>720</x>
-      <y>350</y>
+      <x>2020</x>
+      <y>270</y>
       <w>280</w>
       <h>60</h>
     </coordinates>
@@ -215,8 +215,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>690</x>
-      <y>510</y>
+      <x>1990</x>
+      <y>430</y>
       <w>350</w>
       <h>80</h>
     </coordinates>
@@ -226,8 +226,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>730</x>
-      <y>440</y>
+      <x>2030</x>
+      <y>360</y>
       <w>280</w>
       <h>60</h>
     </coordinates>
@@ -237,8 +237,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
-      <y>280</y>
+      <x>1940</x>
+      <y>200</y>
       <w>70</w>
       <h>70</h>
     </coordinates>
@@ -248,8 +248,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
-      <y>330</y>
+      <x>1940</x>
+      <y>250</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -259,8 +259,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>620</x>
-      <y>460</y>
+      <x>1920</x>
+      <y>380</y>
       <w>130</w>
       <h>60</h>
     </coordinates>
@@ -270,12 +270,158 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>620</x>
-      <y>500</y>
+      <x>1920</x>
+      <y>420</y>
       <w>90</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>430</y>
+      <w>480</w>
+      <h>340</h>
+    </coordinates>
+    <panel_attributes>Azienda
+--
+-N_MAX_INTERVENTI=1000 int
+-nInterventiPresenti:int
+--
++Azienda(Azienda a)
++Azienda()
+-elencoInterventi():String
+-elencoInterventiCronologiciBabysitter(in String nome, in String cognome):String[]
+-elencoInterventiData(in int anno, in int mese, in int giorno):String[]
+-eliminaIntervento(in long id):int
+-eliminaInterventoDataAntecedente(in LocalDate dataLimite):int
+-eliminaInterventoDataUguale(in LocalDate dataCercata):int
+-esportaInterventiCSV(in String filePathName):void
+-getElencoInterventi():Intervento[]
+-getIdUltimoIntervento():long
+-getIntervento(in long id):Intervento
+-getIntervento(in int posizioneIntervento):Intervento
+-getNumInterventiPresenti():int
+-getNumMaxInterventi():int
+-isBabysitterOccupata(in Intervento t1, in Intervento t2):boolean
+-modificaStatusIntervento(in long idIntervento):void
+-posizioneIntervento(in long idIntervento):int
+-salvaAzienda(in String nomeFile):void
+-setElencoInterventi(in Intervento[] elencoInterventi):void
+-setnInterventiPresenti(in int nInterventiPresenti):void
+-terminaInterventoDataAntecedente(in LocalDate dataLimite):int
+-terminaInterventoDataUguale(in LocalDate dataLimite):int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>760</y>
+      <w>200</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+-elencoInterventi:Intervento[]
+m1=0
+m2=0...N_MAX_INTERVENTI=1000 int</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>970</y>
+      <w>1150</w>
+      <h>440</h>
+    </coordinates>
+    <panel_attributes>Intervento
+--
+-nomeCliente:String
+-cognomeCliente:String
+-indirizzoCliente:String
+-idIntervento:long
+-babysitter:Babysitter
+-inizio:LocalDateTime: 
+-fine:LocalDateTime
+-terminato:boolean 
+--
++Intervento(in String nomeCliente, in String cognomeCliente, in String indizirroCliente, in long id, in Babysitter b1, inint annoInizio, int meseInizio, int giornoInizio, int oraInizio, int minutiInizio int annoFine, int meseFine, int giornoFine, int oraFine, int minutiFine)
++Intervento(in Intervento intervento)
++Intervento()
+-getCognomeCliente():String
+-getNomeCliente():String
+-getIndirizzoCliente():String
+-getIdIntervento():long
+-getFine():LocalDateTime
+-getInizio():LocalDateTime
+-getInizioCorto():LocalDate
+-getBabysitter():Babysitter
+-isTerminato():boolean
+-setBabysitter():void
+-setBabysitter(in Babysitter babysitter):void
+-setBabysitter(in String nome, in String cognome):void
+-setCognomeCliente(in String cognome):void
+-setNomeCliente(in String nome):void
+-setIndirizzoCliente(in String nome):void
+-setFine(in int annoFine, in int meseFine, in int giornoFine, in int oraFine, in int minutiFine):void
+-setFine(in LocalDAteTime fine):void
+-setInizio(in int annoInizio, in int meseInizio, in int giornoFine, in int oraInizio, in int minutiInizio):void
+-setInizio(in LocalDAteTime inizio):void
+-setTerminato(in boolean terminato):void
+-terminaIntervento():int
+-toString():String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>1400</y>
+      <w>30</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>1570</y>
+      <w>410</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Babysitter
+--
+-nome:String
+-cognome:String
+--
++Babysitter(in String nome, String cognome)
++Babysitter(in Babysitter babysitter)
++Babysitter()
+-getCognome():String
+-getNome():String
+-setCognome(in String cognome):void
+-setNome(in String nome):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1060</x>
+      <y>740</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Claudio Pasinelli - Diagramma delle classi
+bg=yellow</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
