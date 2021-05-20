@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author pc
+ * @author Claudio Pasinelli
  */
 public class Menu
 {

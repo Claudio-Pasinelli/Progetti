@@ -12,7 +12,7 @@ import java.io.Serializable;
  * I suoi suoi attributi sono:<br>
  * nome <br>
  * cognome
- * @author Pc
+ * @author Claudio Pasinelli
  */
 public class Babysitter implements Serializable
 {
@@ -88,11 +88,18 @@ public class Babysitter implements Serializable
         attaccato=attaccato+getNome()+" "+getCognome();
         return attaccato;
     }
+    /**
+     * Metodo che verifica se una babysitter è uguale a quella cercata (tramite il nome ed il cognome)
+     * @param o è un tipico oggetto
+     * @return true se il paragone tra le babysitter è stato verificato
+     * @return false se le babysitter sono diverse
+     */
     public boolean equals(Object o)
     {
         Babysitter babysitter=(Babysitter)o;
         if(getNome().equalsIgnoreCase(babysitter.getNome()) && getCognome().equalsIgnoreCase(babysitter.getCognome()))
             return true;
-        return false;
+        else
+            return false;
     }
 }

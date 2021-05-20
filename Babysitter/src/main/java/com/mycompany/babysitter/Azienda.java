@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
  * N_MAX_INTERVENTI: 1000, rappresenta il numero massimo di interventi che l'azienda può memorizzare <br>
  * elencoInterventi è l'array di interventi dell'azienda<br>
  * nInterventiPresenti è il numero di interventi presenti nell'array di interventi dell'azienda
- * @author Pc
+ * @author Claudio Pasinelli
  */
 public class Azienda implements Serializable
 {
@@ -177,6 +177,13 @@ public class Azienda implements Serializable
         elencoInterventi[nInterventiPresenti]=new Intervento(t);
         nInterventiPresenti++;
     }
+    /**
+     * Metodo usato per definire se tale babysitter è già occupata in tale data in tale orario
+     * @param t1 è la data in cui tale babysitter è già occupata
+     * @param t2 è la data in cui tale babysitter cerca di prenotare un altro intervento
+     * @return true se tale babysitter è occupata
+     * @return false se tale babysitter è libera
+     */
     private boolean isBabysitterOccupata(Intervento t1, Intervento t2)
     {
         if((t1.getInizio().isAfter(t2.getInizio()) && t1.getInizio().isBefore(t2.getFine())) || (t1.getFine().isAfter(t2.getInizio()) && t1.getFine().isBefore(t2.getFine())) || (t1.getInizio().isBefore(t2.getInizio()) && t1.getFine().isAfter(t2.getFine())))

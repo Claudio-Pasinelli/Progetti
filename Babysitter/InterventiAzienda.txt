@@ -1,0 +1,2 @@
+claudio;pasinelli;asd;1;alice de bernardin;2021-05-20T18:30;2021-05-20T20:30;true;
+asd;asd;asdf;2;nicole inversini;2021-05-22T18:30;2021-05-22T20:30;false;

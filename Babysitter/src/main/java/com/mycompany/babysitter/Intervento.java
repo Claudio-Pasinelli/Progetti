@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
  * inizio: è l'inizio dell'intervento (ha anno/mese/giorno - ora:minuti come parametri)<br>
  * fine: è la fine dell'intervento (ha anno/mese/giorno - ora:minuti come parametri). Deve essere tassativamente postuma all'inizio.<br>
  * terminato: boolean che indica se l'intervento è finito o no. Di default è impostato su false.
- * @author Pc
+ * @author Claudio Pasinelli
  */
 public class Intervento implements Serializable
 {
@@ -51,6 +51,7 @@ public class Intervento implements Serializable
      * @param giornoFine è il giorno di fine dell'intervento<br>
      * @param oraFine è l'ora di fine dell'intervento<br>
      * @param minutiFine sono i minuti di fine dell'intervento
+     * @throws DateException è l'eccezione che avviene in caso d'errore d'inserimento delle date
      */
     public Intervento(String nomeCliente, String cognomeCliente, String indirizzo, long id, Babysitter b1, int annoInizio, int meseInizio, int giornoInizio, int oraInizio, int minutiInizio, int annoFine, int meseFine, int giornoFine, int oraFine, int minutiFine) throws DateException
     {
@@ -61,6 +62,28 @@ public class Intervento implements Serializable
         setBabysitter(b1);
         setInizio(annoInizio,meseInizio,giornoInizio,oraInizio,minutiInizio);
         setFine(annoFine, meseFine, giornoFine, oraFine, minutiFine);
+        terminato=false;
+    }
+    /**
+     * Costruttore della classe Intervento. Consente di istanziare un nuovo intervento grazie ai seguenti parametri:
+     * @param nomeCliente è una stringa contenente il nome del cliente<br>
+     * @param cognomeCliente è una stringa contenente il cognome del cliente<br>
+     * @param indirizzo è una stringa contenente l'indirizzo del cliente<br>
+     * @param id è l'id, codice univoco dell'intervento.<br>
+     * @param b1 è la babysitter che si occupa dell'intervento. Ha nome è cognome.<br>
+     * @param inizioIntervento è la data d'inizio dell'intervento
+     * @param fineIntervento è la data di fine dell'intervento
+     * @throws DateException è l'eccezione che avviene in caso d'errore d'inserimento delle date
+     */
+    public Intervento(String nomeCliente, String cognomeCliente, String indirizzo, long id, Babysitter b1, LocalDateTime inizioIntervento, LocalDateTime fineIntervento) throws DateException
+    {
+        setNomeCliente(nomeCliente);
+        setCognomeCliente(cognomeCliente);
+        setIndirizzoCliente(indirizzo);
+        idIntervento=id;
+        setBabysitter(b1);
+        setInizio(inizioIntervento);
+        setFine(fineIntervento);
         terminato=false;
     }
     /**
@@ -305,5 +328,13 @@ public class Intervento implements Serializable
         else if(!isTerminato())
             attaccato+="Status dell'intervento: non terminato.\n---------------------------------------------";
         return attaccato;
+    }
+    public boolean equals(Object o)
+    {
+        Intervento intervento=(Intervento)o;
+        if(getBabysitter().getCognome().equalsIgnoreCase(intervento.getBabysitter().getCognome()) && getBabysitter().getNome().equalsIgnoreCase(intervento.getBabysitter().getNome()) && getIdIntervento()==intervento.getIdIntervento() && getNomeCliente().equalsIgnoreCase(intervento.getNomeCliente()) && getCognomeCliente().equalsIgnoreCase(intervento.getCognomeCliente()) && getInizio().equals(intervento.getInizio()) && getFine().equals(intervento.getFine()))
+            return true;
+        else
+            return false;
     }
 }

@@ -16,7 +16,7 @@ import eccezioni.FileException;
 
 /**
  *
- * @author User
+ * @author Claudio Pasinelli
  */
 public class TextFile 
 {

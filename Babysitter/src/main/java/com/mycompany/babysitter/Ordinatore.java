@@ -7,7 +7,7 @@ package com.mycompany.babysitter;
 
 /**
  *
- * @author User
+ * @author Claudio Pasinelli
  */
 public class Ordinatore 
 {

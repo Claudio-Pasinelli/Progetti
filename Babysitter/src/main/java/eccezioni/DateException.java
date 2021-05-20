@@ -7,7 +7,7 @@ package eccezioni;
 
 /**
  *
- * @author Pc
+ * @author Claudio Pasinelli
  */
 public class DateException extends Exception
 {

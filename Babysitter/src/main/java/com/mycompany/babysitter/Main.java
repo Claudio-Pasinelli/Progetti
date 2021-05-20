@@ -13,7 +13,7 @@ import java.util.*;
 
 /**
  *
- * @author Pc
+ * @author Claudio Pasinelli
  */
 public class Main
 {
@@ -21,18 +21,19 @@ public class Main
     public static void main(String[] args) throws InterventoNonTrovato, InterventiNonTrovati, ImpossibileTerminareIntervento, InterventoGiaTerminato, MaxInterventiRaggiunto, BabysitterOccupata
     {
         long idProssimoIntervento=1;
-        Babysitter babysitter;
-        String nomeBabysitter;
-        String cognomeBabysitter;
-        String nomeCliente;
-        String cognomeCliente;
-        String indirizzoCliente;
-        Intervento intervento=null;
-        Azienda a=new Azienda();
         long idIntervento=0;
         int annoInizio, meseInizio, giornoInizio, oraInizio, minutiInizio;
         int annoFine, meseFine, giornoFine, oraFine, minutiFine;
+        Babysitter babysitter=null;
+        String nomeBabysitter="";
+        String cognomeBabysitter="";
+        String nomeCliente="";
+        String cognomeCliente="";
+        String indirizzoCliente="";
+        Intervento intervento=null;
+        Azienda a=new Azienda();
         LocalDateTime oggi;
+        
         String nomeFileTesto="InterventiAzienda.txt";
         String nomeFileBinario="Azienda.bin";
         
@@ -78,24 +79,36 @@ public class Main
                 {
                     case 0: //esci
                     {
-                        System.out.println("L'applicazione verrà terminata");
+                        System.out.println("\nL'applicazione verrà terminata");
                         tastiera.nextLine();
                         break;
                     }
                     case 1: //aggiungi intervento (c'è il seguente controllo: la babysitter inserita è già occupata in quell'orario?)
                     {
-                        boolean dataCorretta;
-                        System.out.println("Nome del cliente --> ");
-                        nomeCliente=tastiera.nextLine();
-                        System.out.println("Cognome del cliente --> ");
-                        cognomeCliente=tastiera.nextLine();
-                        System.out.println("Indirizzo del cliente --> ");
-                        indirizzoCliente=tastiera.nextLine();
-                        System.out.println("Nome della babysitter --> ");
-                        nomeBabysitter=tastiera.nextLine();
-                        System.out.println("Cognome della babysitter --> ");
-                        cognomeBabysitter=tastiera.nextLine();
-                        babysitter=new Babysitter(nomeBabysitter,cognomeBabysitter);
+                        boolean dataCorretta,inputCorretto=false;
+                        do
+                        {
+                            System.out.println("Nome del cliente --> ");
+                            nomeCliente=tastiera.nextLine();
+                            System.out.println("Cognome del cliente --> ");
+                            cognomeCliente=tastiera.nextLine();
+                            System.out.println("Indirizzo del cliente --> ");
+                            indirizzoCliente=tastiera.nextLine();
+                            System.out.println("Nome della babysitter --> ");
+                            nomeBabysitter=tastiera.nextLine();
+                            System.out.println("Cognome della babysitter --> ");
+                            cognomeBabysitter=tastiera.nextLine();
+                            babysitter=new Babysitter(nomeBabysitter,cognomeBabysitter);
+                            inputCorretto=isInputCorretto(nomeCliente,cognomeCliente,indirizzoCliente,nomeBabysitter,cognomeBabysitter);
+                            if(inputCorretto)
+                                break;
+                            else
+                            {
+                                System.out.println("\nHai inserito male delle informazioni:\n---------------------------------------------\nCliente: "+nomeCliente+ " "+cognomeCliente+"\nIndirizzo del cliente: "+indirizzoCliente+"\nBabysitter: "+nomeBabysitter+" "+cognomeBabysitter+"\n---------------------------------------------\n");
+                                System.out.println("Premi un tasto per reinserire le informazioni dell'intervento.");
+                                tastiera.nextLine();
+                            }
+                        }while(!inputCorretto);
                         //data inizio
                         do
                         {
@@ -116,8 +129,9 @@ public class Main
                             {
                                 oggi=LocalDateTime.now();
                                 System.out.println("\nLa data d'inizio intervento: "+giornoInizio+"/"+meseInizio+"/"+annoInizio+" - "+oraInizio+":"+minutiInizio+" non è valida.\nOggi è il: "+oggi.getDayOfMonth()+"/"+oggi.getMonthValue()+"/"+oggi.getYear()+" - "+oggi.getHour()+":"+oggi.getMinute());
+                                System.out.println("Premi un tasto per reinserire le informazioni dell'intervento.");
+                                tastiera.nextLine();
                             }
-                                
                         }while(!dataCorretta);
                         dataCorretta=false;
                         //data fine
@@ -440,10 +454,30 @@ public class Main
                     }
                     case 9: //elenco di tutti gli interventi in ordine cronologico di una determinata babysitter
                     {
-                        System.out.println("Inserisci il nome della babysitter da cercare --> ");
-                        nomeBabysitter=tastiera.nextLine();
-                        System.out.println("Inserisci il cognome della babysitter da cercare --> ");
-                        cognomeBabysitter=tastiera.nextLine();
+                        boolean inputCorretto=false;
+                        int contatoreTentativi=2;
+                        do
+                        {
+                            System.out.println("Inserisci il nome della babysitter da cercare --> ");
+                            nomeBabysitter=tastiera.nextLine();
+                            System.out.println("Inserisci il cognome della babysitter da cercare --> ");
+                            cognomeBabysitter=tastiera.nextLine();
+                            inputCorretto=isInputCorretto(nomeBabysitter,cognomeBabysitter);
+                            if(inputCorretto)
+                                break;
+                            else
+                            {
+                                if(contatoreTentativi!=0)
+                                    System.out.println("\nBisogna reinserire le informazioni sulla babysitter perché sono errate:\n---------------------------------------------\nBabysitter: "+nomeBabysitter+" "+cognomeBabysitter+"\n---------------------------------------------");
+                                if(contatoreTentativi==1)
+                                    System.out.println("Hai ancora "+contatoreTentativi+" tentativo.\n");
+                                else if(contatoreTentativi>1)
+                                    System.out.println("Hai ancora "+contatoreTentativi+" tentativi.\n");
+                                else if(contatoreTentativi==0)
+                                    break;
+                                contatoreTentativi--;
+                            }
+                        }while(!inputCorretto && contatoreTentativi!=-1);
                         String[] elencoRicerca=a.elencoInterventiCronologiciBabysitter(nomeBabysitter, cognomeBabysitter);
                         if(elencoRicerca==null)
                             System.out.println("\nLa babysitter: \""+nomeBabysitter+" "+cognomeBabysitter+"\" non è stata trovata");
@@ -528,7 +562,8 @@ public class Main
                         {
                             a.salvaAzienda(nomeFileBinario);
                             System.out.println("Dati salvati correttamente");
-                        } catch (IOException ex) 
+                        }
+                        catch (IOException ex) 
                         {
                             System.out.println("Impossibile accedere al file in scrittura");
                         }
@@ -582,5 +617,17 @@ public class Main
             return false;
         else
             return true;
+    }
+    public static boolean isInputCorretto(String nome, String cognome, String indirizzo, String nomeB, String cognomeB)
+    {
+        if(nome.length()==0 || cognome.length()==0 || indirizzo.length()==0 || nomeB.length()==0 || cognomeB.length()==0)
+            return false;
+        return true;
+    }
+    public static boolean isInputCorretto(String nomeB, String cognomeB)
+    {
+        if(nomeB.length()==0 || cognomeB.length()==0)
+            return false;
+        return true;
     }
 }
