@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="31" failures="0" name="com.mycompany.babysitter.AziendaTest" time="0.394" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="16+36-2231"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-16\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\Pc\Desktop\Babysitter_Progetto\Babysitter"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="IT"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="test" value="com.mycompany.babysitter.AziendaTest"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\Pc\Desktop\Babysitter_Progetto\Babysitter"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="16+36-2231"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\Pc\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-12.3\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="classworlds.conf" value="C:\Program Files\NetBeans-12.3\netbeans\java\maven\bin\..\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-16\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\Pc\AppData\Local\Microsoft\WindowsApps;C:\Users\Pc\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Pc\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="maven.conf" value="C:\Program Files\NetBeans-12.3\netbeans\java\maven\bin\../conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="60.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="library.jansi.path" value="C:\Program Files\NetBeans-12.3\netbeans\java\maven\bin\..\lib\jansi-native"/>
+    <property name="user.home" value="C:\Users\Pc"/>
+    <property name="user.timezone" value="Europe/Rome"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="16"/>
+    <property name="user.name" value="Pc"/>
+    <property name="java.class.path" value="C:\Program Files\NetBeans-12.3\netbeans\java\maven\bin\..\boot\plexus-classworlds-2.6.0.jar"/>
+    <property name="java.vm.specification.version" value="16"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=com.mycompany.babysitter.AziendaTest -Dmaven.ext.class.path=C:\Program Files\NetBeans-12.3\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 process-test-classes surefire:test"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-16"/>
+    <property name="user.language" value="it"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="16"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\NetBeans-12.3\netbeans\java\maven\bin\.."/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2021-03-16"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testModificaStatusInterventoTerminato" time="0.012"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testElencoInterventiCronologiciBabysitter" time="0.028"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaInterventoDataUgualeSbagliata" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testTerminaInterventoDataUguale" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaInterventoDataAntecedente" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testTerminaInterventoDataUgualeSbagliata" time="0.003"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaInterventoDataUguale" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEsportaInterventiCSV" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testSetnInterventiPresenti" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testElencoInterventi" time="0.002"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testTerminaInterventoDataAntecedenteSbagliata" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testElencoInterventiData" time="0.02"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetNumMaxInterventi" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetNumInterventiPresenti" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testSetElencoInterventi" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaInterventoDataAntecedenteSbagliata" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaInterventoNoInterventi" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testModificaStatusInterventoInesistente" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testCaricaAzienda" time="0.175"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testAggiungiIntervento" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaIntervento" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testSalvaAzienda" time="0.143"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetIdUltimoIntervento" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testAggiungiInterventoBabysitterOccupata" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testTerminaInterventoDataAntecedente" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetInterventoSbagliato_int" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetIntervento_long" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testModificaStatusIntervento" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetElencoInterventi" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetIntervento_int" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaInterventoNonTrovato" time="0"/>
+</testsuite>

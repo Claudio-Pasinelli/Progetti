@@ -165,7 +165,7 @@ public class AziendaTest
         nInterventiPresentiAzienda=a.getNumInterventiPresenti();
         assertEquals("L'azienda ha un intervento e cerco di inserirne uno uguale ad uno preesistente",nInterventiPresentiAttesi,nInterventiPresentiAzienda);
     }
-    /*@Test(expected=MaxInterventiRaggiunto.class)
+    /*@Test(expected=MaxInterventiRaggiunto.class) 
     public void testAggiungiInterventoMaxInterventiRaggiunto() throws Exception
     {
         int nInterventiPresentiAttesi=1000,nInterventiPresentiAzienda;
