@@ -539,7 +539,7 @@ public class Main
                         }
                         break;
                     }
-                    case 11:
+                    case 11: //salva i dati in SCV
                     {
                         try
                         {
@@ -556,7 +556,7 @@ public class Main
                         }
                         break;
                     }
-                    case 12:
+                    case 12: //salva i dati in binario
                     {
                         try 
                         {

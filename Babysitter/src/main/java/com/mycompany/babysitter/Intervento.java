@@ -334,7 +334,10 @@ public class Intervento implements Serializable
         Intervento intervento=(Intervento)o;
         if(getBabysitter().getCognome().equalsIgnoreCase(intervento.getBabysitter().getCognome()) && getBabysitter().getNome().equalsIgnoreCase(intervento.getBabysitter().getNome()) && getIdIntervento()==intervento.getIdIntervento() && getNomeCliente().equalsIgnoreCase(intervento.getNomeCliente()) && getCognomeCliente().equalsIgnoreCase(intervento.getCognomeCliente()) && getInizio().equals(intervento.getInizio()) && getFine().equals(intervento.getFine()))
             return true;
+        else if((toString().compareTo(intervento.toString()))==0)
+            return true;
         else
             return false;
     }
+
 }

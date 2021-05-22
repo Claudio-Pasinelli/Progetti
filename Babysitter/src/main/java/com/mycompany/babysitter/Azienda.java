@@ -50,13 +50,10 @@ public class Azienda implements Serializable
      */
     public Azienda(Azienda a)
     {
-        elencoInterventi=new Intervento[N_MAX_INTERVENTI]; //1 ripiano contenente un array di 5 mensole contenenti 15 libri
-        Intervento t;
+        elencoInterventi=new Intervento[N_MAX_INTERVENTI];
         for (int i=0; i<getNumMaxInterventi(); i++)
         {
-            t=elencoInterventi[i];
-            if(elencoInterventi[i]!=null)
-                elencoInterventi[i]=t;
+            elencoInterventi[i]=new Intervento(a.getIntervento(i));
         }
     }
     /**
@@ -124,10 +121,17 @@ public class Azienda implements Serializable
      */
     public Intervento getIntervento(int posizioneIntervento)
     {
-        if (elencoInterventi[posizioneIntervento]!=null)
-            return new Intervento(elencoInterventi[posizioneIntervento]);
-        else
-            return null;
+        try
+        {
+            if (elencoInterventi[posizioneIntervento]!=null)
+                return new Intervento(elencoInterventi[posizioneIntervento]);
+            else
+                return null;
+        }
+        catch(NullPointerException e1)
+        {
+            throw new NullPointerException("L'azienda non ha interventi");
+        }
     }
     /**
      * Metodo che ritorna l'id dell'ultimo intervento dell'array di interventi dell'azienda
@@ -171,7 +175,6 @@ public class Azienda implements Serializable
                        throw new eccezioni.BabysitterOccupata(babysitter,inizioData);
                    } 
                 }
-                
             }
         }
         elencoInterventi[nInterventiPresenti]=new Intervento(t);
@@ -186,7 +189,7 @@ public class Azienda implements Serializable
      */
     private boolean isBabysitterOccupata(Intervento t1, Intervento t2)
     {
-        if((t1.getInizio().isAfter(t2.getInizio()) && t1.getInizio().isBefore(t2.getFine())) || (t1.getFine().isAfter(t2.getInizio()) && t1.getFine().isBefore(t2.getFine())) || (t1.getInizio().isBefore(t2.getInizio()) && t1.getFine().isAfter(t2.getFine())))
+        if((t1.getInizio().isAfter(t2.getInizio()) && t1.getInizio().isBefore(t2.getFine())) || (t1.getFine().isAfter(t2.getInizio()) && t1.getFine().isBefore(t2.getFine())) || (t1.getInizio().isBefore(t2.getInizio()) && t1.getFine().isAfter(t2.getFine())) || (t1.getInizio().equals(t2.getInizio()) && t1.getFine().equals(t2.getFine())))
             return true;
         else
             return false;
@@ -198,7 +201,7 @@ public class Azienda implements Serializable
      */
     public int eliminaIntervento(long id) throws InterventoNonTrovato, InterventiNonTrovati
     {
-        if(this.getNumMaxInterventi()==0)
+        if(this.nInterventiPresenti==0)
             throw new eccezioni.InterventiNonTrovati();
         for(int i=0;i<getNumMaxInterventi();i++)
         {
@@ -308,7 +311,7 @@ public class Azienda implements Serializable
         posizioneInterventoArray=posizioneIntervento(idIntervento);
         if (posizioneInterventoArray==-1)
             throw new eccezioni.ImpossibileTerminareIntervento(idIntervento, "\nNon è stato possibile terminare l'intervento numero: "+idIntervento);
-        else if(elencoInterventi[posizioneInterventoArray].isTerminato())
+        if(elencoInterventi[posizioneInterventoArray].isTerminato())
             throw new eccezioni.InterventoGiaTerminato(idIntervento,"\nL'intervento: "+idIntervento+" è già stato terminato.");
         elencoInterventi[posizioneInterventoArray].setTerminato(true);
     }
