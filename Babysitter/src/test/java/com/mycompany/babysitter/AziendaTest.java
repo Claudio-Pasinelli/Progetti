@@ -24,7 +24,7 @@ public class AziendaTest
 {
     Azienda a,a2;
     Intervento t1,t2,t3;
-    Babysitter b1,b2,b3;
+    Babysitter b1,b2;
     LocalDateTime inizio1,fine1,inizio2,fine2,inizio3,fine3;
     String nomeFileTesto;
     String nomeFileBinario;
@@ -35,7 +35,6 @@ public class AziendaTest
         a=new Azienda();
         b1=new Babysitter("Alice","De Bernardin");
         b2=new Babysitter("Nicolè","Inversini");
-        b3=new Babysitter("Alice","De Bernardin");
         inizio1=LocalDateTime.of(2021,1,1,1,1); //2021-1-1
         fine1=LocalDateTime.of(2021,1,2,1,1);   //2021-1-2
         inizio2=LocalDateTime.of(2021,1,3,1,1); //2021-1-3
@@ -44,7 +43,7 @@ public class AziendaTest
         fine3=LocalDateTime.of(2021,1,4,1,1);   //2021-1-6
         t1=new Intervento("Claudio","Pasinelli","asdf",1,b1,inizio1,fine1);  //2021-1-1 / 2021-1-2
         t2=new Intervento("Carlo","Carlino","asdfmovie",2,b2,inizio2,fine2); //2021-1-3 / 2021-1-4
-        t3=new Intervento("Dina","Lampa","asdfmovie",3,b3,inizio3,fine3); //2021-1-5 / 2021-1-6
+        t3=new Intervento("Dina","Lampa","asdfmovie3",3,b1,inizio3,fine3); //2021-1-5 / 2021-1-6
         nomeFileTesto="InterventiAzienda.txt";
         nomeFileBinario="Azienda.bin";
     }
@@ -88,11 +87,11 @@ public class AziendaTest
         a.aggiungiIntervento(t1);
         a.aggiungiIntervento(t2);
         interventoAttuale=new Intervento(a.getIntervento(0));
-        assertEquals("L'azienda ha 2 interventi che vengono trovati tramite l'id",interventoAtteso,interventoAttuale);
+        assertEquals("L'azienda ha 2 interventi ma viene trovato il primo tramite l'id",interventoAtteso,interventoAttuale);
         
-        interventoAtteso=new Intervento(t2);
-        interventoAttuale=new Intervento(a.getIntervento(0));
-        assertFalse("L'azienda ha 2 interventi che vengono trovati tramite l'id",interventoAtteso.equals(interventoAttuale));
+        interventoAtteso=new Intervento();
+        interventoAttuale=new Intervento(a.getIntervento(3));
+        assertEquals("L'azienda ha 2 interventi ma si cerca l'intervento con id 3",interventoAtteso,interventoAttuale);
     }
 
     /**
@@ -114,10 +113,10 @@ public class AziendaTest
         Intervento[] atteso=new Intervento[1000],attuale=new Intervento[1000];
         
         atteso=a.getElencoInterventi();
-        attuale[0]=a.getIntervento(0);
+        attuale[0]=a.getIntervento(1);
         for(int i=0; i<1000;i++)
         {
-            Assert.assertArrayEquals("L'azienda non contiene interventi", atteso, attuale);
+            assertEquals("L'azienda non contiene interventi", atteso[i], attuale[i]);
         }
     }
 
@@ -198,11 +197,11 @@ public class AziendaTest
     @Test (expected = InterventoNonTrovato.class)
     public void testEliminaInterventoNonTrovato() throws Exception
     {
-        int nInterventiPresentiAttesi=0,nInterventiPresentiAzienda;
+        int nInterventiPresentiAttesi=1,nInterventiPresentiAzienda;
         a.aggiungiIntervento(t1);
         a.eliminaIntervento(3);
         nInterventiPresentiAzienda=a.getNumInterventiPresenti();
-        assertEquals("L'azienda ha un intervento che elimino poi faccio la stessa cosa un id inesistente",nInterventiPresentiAttesi,nInterventiPresentiAzienda);
+        assertEquals("L'azienda ha un intervento ma ne elimino uno tramite un id inesistente",nInterventiPresentiAttesi,nInterventiPresentiAzienda);
     }
         @Test (expected = InterventiNonTrovati.class)
     public void testEliminaInterventoNoInterventi() throws Exception
@@ -225,11 +224,10 @@ public class AziendaTest
         a.aggiungiIntervento(t1);
         a.aggiungiIntervento(t2);
         attuale=a.eliminaInterventoDataAntecedente(data);
-        atteso=0;
         assertEquals("Vado ad eliminare gli interventi antecedenti alla data 2021-1-2 (t1)",atteso, attuale);
     }
     @Test(expected=InterventiNonTrovati.class)
-    public void testEliminaInterventoDataAntecedenteSbagliata() throws Exception
+    public void testEliminaInterventoDataAntecedenteVuota() throws Exception
     {
         LocalDate data=LocalDate.of(2021,1,1);
         int atteso=0,attuale;
@@ -237,7 +235,6 @@ public class AziendaTest
         a.aggiungiIntervento(t1);
         a.aggiungiIntervento(t2);
         attuale=a.eliminaInterventoDataAntecedente(data);
-        atteso=0;
         assertEquals("Vado ad eliminare gli interventi antecedenti alla data 2021-1-1 (non ci sono)",atteso, attuale);
     }
 
@@ -253,19 +250,17 @@ public class AziendaTest
         a.aggiungiIntervento(t1);
         a.aggiungiIntervento(t2);
         attuale=a.eliminaInterventoDataUguale(data);
-        atteso=0;
         assertEquals("Vado ad eliminare gli interventi in data 2021-1-1 (t1)",atteso, attuale);
     }
     @Test(expected=InterventiNonTrovati.class)
     public void testEliminaInterventoDataUgualeSbagliata() throws Exception
     {
         LocalDate data=LocalDate.of(2021,1,2);
-        int atteso=0,attuale;
+        int atteso = 0,attuale;
         
         a.aggiungiIntervento(t1);
         a.aggiungiIntervento(t2);
         attuale=a.eliminaInterventoDataUguale(data);
-        atteso=0;
         assertEquals("Vado ad eliminare gli interventi in data 2021-1-2 (non ci sono)",atteso, attuale);
     }
 
@@ -277,20 +272,15 @@ public class AziendaTest
     {
         boolean terminato;
         a.aggiungiIntervento(t1);
-        a.aggiungiIntervento(t2);
-        a.modificaStatusIntervento(a.getIntervento(1).getIdIntervento()); //termino il primo intervento
-        terminato=a.getIntervento(1).isTerminato();
-        assertEquals("L'azienda ha 2 interventi, uno terminato ed uno no",terminato,true);
-        
-        terminato=a.getIntervento(2).isTerminato(); //ma non termino il secondo
-        assertEquals("L'azienda ha 2 interventi entrambi terminati",terminato,false);
+        a.modificaStatusIntervento(a.getIntervento(0).getIdIntervento());
+        terminato=a.getIntervento(0).isTerminato();
+        assertEquals("L'azienda ha 1 intervento terminato",terminato,true);
     }
     @Test(expected = ImpossibileTerminareIntervento.class)
     public void testModificaStatusInterventoInesistente() throws Exception
     {
         boolean atteso=false, attuale;
-        a.aggiungiIntervento(t1);
-        a.aggiungiIntervento(t2);
+
         a.modificaStatusIntervento(3);
         attuale=a.getIntervento(3).isTerminato();
         assertEquals("Cerco di terminare l'intervento con id 3 (ma il massimo è 2)",atteso, attuale);
@@ -298,11 +288,9 @@ public class AziendaTest
     @Test(expected = InterventoGiaTerminato.class)
     public void testModificaStatusInterventoTerminato() throws Exception
     {
-        boolean atteso=true, attuale;
         a.aggiungiIntervento(t1);
         a.aggiungiIntervento(t2);
         a.modificaStatusIntervento(1);
-        attuale=a.getIntervento(0).isTerminato();
         a.modificaStatusIntervento(1);
     }
 
@@ -318,7 +306,6 @@ public class AziendaTest
         a.aggiungiIntervento(t1);
         a.aggiungiIntervento(t2);
         attuale=a.terminaInterventoDataAntecedente(data);
-        atteso=0;
         assertEquals("Vado a terminare gli interventi in data 2021-1-1 (t1)",atteso, attuale);
     }
     @Test(expected=ImpossibileTerminareIntervento.class)
@@ -330,7 +317,6 @@ public class AziendaTest
         a.aggiungiIntervento(t1);
         a.aggiungiIntervento(t2);
         attuale=a.terminaInterventoDataAntecedente(data);
-        atteso=0;
         assertEquals("Vado a terminare gli interventi in data 2021-1-1 (non ci sono)",atteso, attuale);
     }
 
@@ -346,7 +332,7 @@ public class AziendaTest
         a.aggiungiIntervento(t2);
         data=a.getIntervento(1).getInizioCorto();
         a.terminaInterventoDataUguale(data);
-        assertEquals("L'azienda ha 2 interventi",t1,t1);
+        assertFalse("L'azienda ha 2 interventi",t1.equals(t2));
     }
     @Test(expected = ImpossibileTerminareIntervento.class)
     public void testTerminaInterventoDataUgualeSbagliata() throws InterventiNonTrovati, ImpossibileTerminareIntervento, MaxInterventiRaggiunto, BabysitterOccupata
@@ -355,7 +341,7 @@ public class AziendaTest
         a.aggiungiIntervento(t1);
         data=LocalDate.of(2021,5,19);
         a.terminaInterventoDataUguale(data);
-        assertEquals("L'azienda ha 1 intervento",t1,t1);
+        assertFalse("L'azienda ha 1 intervento",t1.equals(t2));
     }
 
     /**
@@ -365,7 +351,6 @@ public class AziendaTest
     public void testElencoInterventiCronologiciBabysitter() throws MaxInterventiRaggiunto, BabysitterOccupata
     {
         a.aggiungiIntervento(t1);
-        a.aggiungiIntervento(t2);
         String[] atteso=a.elencoInterventiCronologiciBabysitter(t1.getBabysitter().getNome(),t1.getBabysitter().getCognome());
         String[] attuale=a.elencoInterventiCronologiciBabysitter("Alice","De Bernardin");
         Assert.assertArrayEquals("L'azienda contiene un intervento della babysitter :\"Alice De Bernardin\"", atteso, attuale);
@@ -384,7 +369,7 @@ public class AziendaTest
     {
         int anno=2021, mese=2, giorno=1;
         
-        String[] atteso=a.elencoInterventiData(2021, 2,1);
+        String[] atteso=a.elencoInterventiData(2021,2,1);
         String[] attuale=a.elencoInterventiData(anno, mese,giorno);
         Assert.assertArrayEquals("L'azienda non contiene interventi", atteso, attuale);
         
@@ -421,7 +406,9 @@ public class AziendaTest
     @Test
     public void testEsportaInterventiCSV() throws Exception
     {
-        
+        a.aggiungiIntervento(t1);
+        a.aggiungiIntervento(t2);
+        a.esportaInterventiCSV(nomeFileTesto);
     }
 
     /**

@@ -14,7 +14,7 @@ public class InterventiNonTrovati extends Exception{
     }
     @Override
     public String toString() {
-        String attaccato="Nessun intervento presente nell'archivio dell'azienda";
+        String attaccato="Non è stato trovato nessun intervento su cui compiere l'azione.";
         return attaccato;
     }
 }

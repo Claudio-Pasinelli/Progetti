@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="31" failures="0" name="com.mycompany.babysitter.AziendaTest" time="0.394" errors="0" skipped="0">
+<testsuite tests="31" failures="0" name="com.mycompany.babysitter.AziendaTest" time="0.413" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="16+36-2231"/>
@@ -60,28 +60,28 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testModificaStatusInterventoTerminato" time="0.012"/>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testElencoInterventiCronologiciBabysitter" time="0.028"/>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaInterventoDataUgualeSbagliata" time="0"/>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testTerminaInterventoDataUguale" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testModificaStatusInterventoTerminato" time="0.015"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaInterventoDataAntecedenteVuota" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testElencoInterventiCronologiciBabysitter" time="0.038"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaInterventoDataUgualeSbagliata" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testTerminaInterventoDataUguale" time="0.002"/>
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaInterventoDataAntecedente" time="0"/>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testTerminaInterventoDataUgualeSbagliata" time="0.003"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testTerminaInterventoDataUgualeSbagliata" time="0.005"/>
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaInterventoDataUguale" time="0.001"/>
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEsportaInterventiCSV" time="0"/>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testSetnInterventiPresenti" time="0"/>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testElencoInterventi" time="0.002"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testSetnInterventiPresenti" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testElencoInterventi" time="0.003"/>
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testTerminaInterventoDataAntecedenteSbagliata" time="0.001"/>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testElencoInterventiData" time="0.02"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testElencoInterventiData" time="0.027"/>
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetNumMaxInterventi" time="0"/>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetNumInterventiPresenti" time="0"/>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testSetElencoInterventi" time="0.001"/>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaInterventoDataAntecedenteSbagliata" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetNumInterventiPresenti" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testSetElencoInterventi" time="0.002"/>
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaInterventoNoInterventi" time="0"/>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testModificaStatusInterventoInesistente" time="0.001"/>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testCaricaAzienda" time="0.175"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testModificaStatusInterventoInesistente" time="0"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testCaricaAzienda" time="0.179"/>
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testAggiungiIntervento" time="0.001"/>
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaIntervento" time="0.001"/>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testSalvaAzienda" time="0.143"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testSalvaAzienda" time="0.132"/>
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetIdUltimoIntervento" time="0"/>
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testAggiungiInterventoBabysitterOccupata" time="0"/>
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testTerminaInterventoDataAntecedente" time="0.001"/>
@@ -89,6 +89,6 @@
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetIntervento_long" time="0.001"/>
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testModificaStatusIntervento" time="0"/>
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetElencoInterventi" time="0.001"/>
-  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetIntervento_int" time="0.001"/>
+  <testcase classname="com.mycompany.babysitter.AziendaTest" name="testGetIntervento_int" time="0"/>
   <testcase classname="com.mycompany.babysitter.AziendaTest" name="testEliminaInterventoNonTrovato" time="0"/>
 </testsuite>
