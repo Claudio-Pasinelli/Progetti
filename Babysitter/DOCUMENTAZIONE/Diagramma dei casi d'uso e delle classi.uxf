@@ -479,7 +479,7 @@ bg=green</panel_attributes>
       <w>530</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>Le date dell'intervento da aggiungere non devono accavallarsi con quello di un altro
+    <panel_attributes>Le date dell'intervento da aggiungere non devono accavallarsi con quelle di un altro
 intervento già presente se è svolto dalla stessa babysitter 
 bg=green</panel_attributes>
     <additional_attributes/>
@@ -567,5 +567,40 @@ bg=green</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>190.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>2150</x>
+      <y>670</y>
+      <w>400</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Risultato positivo anche se gli interventi oggetto di ricerca
+sono già stati terminati
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2080</x>
+      <y>450</y>
+      <w>90</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2000</x>
+      <y>560</y>
+      <w>170</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;140.0</additional_attributes>
   </element>
 </diagram>
