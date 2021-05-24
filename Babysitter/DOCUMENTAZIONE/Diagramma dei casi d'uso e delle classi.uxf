@@ -4,8 +4,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>930</x>
-      <y>530</y>
+      <x>1200</x>
+      <y>580</y>
       <w>80</w>
       <h>110</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1170</x>
-      <y>140</y>
+      <x>1440</x>
+      <y>190</y>
       <w>280</w>
       <h>70</h>
     </coordinates>
@@ -26,8 +26,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1170</x>
-      <y>220</y>
+      <x>1440</x>
+      <y>270</y>
       <w>280</w>
       <h>70</h>
     </coordinates>
@@ -37,8 +37,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1150</x>
-      <y>510</y>
+      <x>1420</x>
+      <y>560</y>
       <w>330</w>
       <h>90</h>
     </coordinates>
@@ -48,8 +48,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1160</x>
-      <y>390</y>
+      <x>1430</x>
+      <y>440</y>
       <w>270</w>
       <h>70</h>
     </coordinates>
@@ -59,8 +59,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1140</x>
-      <y>690</y>
+      <x>1410</x>
+      <y>740</y>
       <w>360</w>
       <h>90</h>
     </coordinates>
@@ -70,8 +70,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1150</x>
-      <y>600</y>
+      <x>1420</x>
+      <y>650</y>
       <w>360</w>
       <h>90</h>
     </coordinates>
@@ -82,8 +82,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>160</y>
+      <x>1230</x>
+      <y>210</y>
       <w>230</w>
       <h>420</h>
     </coordinates>
@@ -93,8 +93,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>240</y>
+      <x>1230</x>
+      <y>290</y>
       <w>230</w>
       <h>340</h>
     </coordinates>
@@ -104,8 +104,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>410</y>
+      <x>1230</x>
+      <y>460</y>
       <w>220</w>
       <h>170</h>
     </coordinates>
@@ -115,8 +115,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>540</y>
+      <x>1230</x>
+      <y>590</y>
       <w>210</w>
       <h>40</h>
     </coordinates>
@@ -126,8 +126,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>550</y>
+      <x>1230</x>
+      <y>600</y>
       <w>210</w>
       <h>120</h>
     </coordinates>
@@ -137,8 +137,8 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>550</y>
+      <x>1230</x>
+      <y>600</y>
       <w>200</w>
       <h>210</h>
     </coordinates>
@@ -148,10 +148,10 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1110</x>
-      <y>90</y>
+      <x>1380</x>
+      <y>140</y>
       <w>740</w>
-      <h>780</h>
+      <h>890</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -159,30 +159,30 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1180</x>
-      <y>780</y>
-      <w>280</w>
+      <x>1420</x>
+      <y>940</y>
+      <w>400</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>Può salvare gli interventi e le loro modifiche</panel_attributes>
+    <panel_attributes>Può salvare gli interventi e le loro modifiche su un file binario</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>550</y>
-      <w>240</w>
-      <h>280</h>
+      <x>1230</x>
+      <y>600</y>
+      <w>210</w>
+      <h>390</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;220.0;260.0</additional_attributes>
+    <additional_attributes>10.0;10.0;190.0;370.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1400</x>
-      <y>0</y>
+      <x>1670</x>
+      <y>50</y>
       <w>290</w>
       <h>50</h>
     </coordinates>
@@ -193,8 +193,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1490</x>
-      <y>170</y>
+      <x>1760</x>
+      <y>220</y>
       <w>350</w>
       <h>80</h>
     </coordinates>
@@ -204,8 +204,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1520</x>
-      <y>270</y>
+      <x>1790</x>
+      <y>320</y>
       <w>280</w>
       <h>60</h>
     </coordinates>
@@ -215,8 +215,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1490</x>
-      <y>430</y>
+      <x>1760</x>
+      <y>400</y>
       <w>350</w>
       <h>80</h>
     </coordinates>
@@ -226,8 +226,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1530</x>
-      <y>360</y>
+      <x>1800</x>
+      <y>510</y>
       <w>280</w>
       <h>60</h>
     </coordinates>
@@ -237,8 +237,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1440</x>
-      <y>200</y>
+      <x>1710</x>
+      <y>250</y>
       <w>70</w>
       <h>70</h>
     </coordinates>
@@ -248,8 +248,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1440</x>
-      <y>250</y>
+      <x>1710</x>
+      <y>300</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
@@ -259,31 +259,31 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1420</x>
-      <y>380</y>
+      <x>1690</x>
+      <y>470</y>
       <w>130</w>
-      <h>60</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;40.0;110.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;110.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1420</x>
-      <y>420</y>
+      <x>1690</x>
+      <y>430</y>
       <w>90</w>
-      <h>70</h>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;50.0</additional_attributes>
+    <additional_attributes>10.0;40.0;70.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>350</y>
-      <w>480</w>
+      <y>420</y>
+      <w>530</w>
       <h>510</h>
     </coordinates>
     <panel_attributes>Azienda
@@ -308,7 +308,7 @@ bg=yellow</panel_attributes>
 +getIntervento(in int posizioneIntervento):Intervento
 +getNumInterventiPresenti():int
 +getNumMaxInterventi():int
--isBabysitterOccupata(in Intervento t1, in Intervento t2):boolean
++isBabysitterOccupata(in Intervento t1, in Intervento t2):boolean
 +modificaStatusIntervento(in long idIntervento):void
 -posizioneIntervento(in long idIntervento):int
 +salvaAzienda(in String nomeFile):void
@@ -322,7 +322,7 @@ bg=yellow</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>220</x>
-      <y>850</y>
+      <y>920</y>
       <w>200</w>
       <h>190</h>
     </coordinates>
@@ -336,8 +336,8 @@ m2=0...N_MAX_INTERVENTI=1000 int</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>1020</y>
-      <w>1150</w>
+      <y>1090</y>
+      <w>1760</w>
       <h>560</h>
     </coordinates>
     <panel_attributes>Intervento
@@ -383,7 +383,7 @@ m2=0...N_MAX_INTERVENTI=1000 int</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>250</x>
-      <y>1570</y>
+      <y>1640</y>
       <w>30</w>
       <h>190</h>
     </coordinates>
@@ -396,7 +396,7 @@ m2=1</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>1740</y>
+      <y>1810</y>
       <w>410</w>
       <h>180</h>
     </coordinates>
@@ -408,7 +408,7 @@ m2=1</panel_attributes>
 +Babysitter(in String nome, String cognome)
 +Babysitter(in Babysitter babysitter)
 +Babysitter()
-getCognome():String
++getCognome():String
 +getNome():String
 +setCognome(in String cognome):void
 +setNome(in String nome):void</panel_attributes>
@@ -417,13 +417,155 @@ getCognome():String
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>560</x>
-      <y>740</y>
+      <x>530</x>
+      <y>940</y>
       <w>290</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>Claudio Pasinelli - Diagramma delle classi
 bg=yellow</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>1440</x>
+      <y>850</y>
+      <w>280</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Può eportare gli interventi in formato CSV</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1230</x>
+      <y>600</y>
+      <w>230</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;210.0;280.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1010</x>
+      <y>340</y>
+      <w>290</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>L'intervento non deve essere già terminato
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1290</x>
+      <y>370</y>
+      <w>190</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>170.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>910</x>
+      <y>30</y>
+      <w>530</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Le date dell'intervento da aggiungere non devono accavallarsi con quello di un altro
+intervento già presente se è svolto dalla stessa babysitter 
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1430</x>
+      <y>50</y>
+      <w>90</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>70.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1990</x>
+      <y>0</y>
+      <w>360</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Si eliminano tutti gli interventi antecedenti ad una data
+ma non quelli compresi in essa
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2050</x>
+      <y>60</y>
+      <w>200</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;170.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2090</x>
+      <y>410</y>
+      <w>310</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;20.0;290.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>2140</x>
+      <y>350</y>
+      <w>360</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Si terminano tutti gli interventi (non terminati)
+antecedenti ad una data
+ma non quelli compresi in essa
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>970</x>
+      <y>760</y>
+      <w>290</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>L'elenco degli interventi
+non è ordinato in ordine cronologico
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1250</x>
+      <y>620</y>
+      <w>210</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>190.0;10.0;10.0;180.0</additional_attributes>
   </element>
 </diagram>

@@ -71,8 +71,8 @@ public class Intervento implements Serializable
      * @param indirizzo è una stringa contenente l'indirizzo del cliente<br>
      * @param id è l'id, codice univoco dell'intervento.<br>
      * @param b1 è la babysitter che si occupa dell'intervento. Ha nome è cognome.<br>
-     * @param inizioIntervento è la data d'inizio dell'intervento
-     * @param fineIntervento è la data di fine dell'intervento
+     * @param inizioIntervento è la data d'inizio dell'intervento<br>
+     * @param fineIntervento è la data di fine dell'intervento<br>
      * @throws DateException è l'eccezione che avviene in caso d'errore d'inserimento delle date
      */
     public Intervento(String nomeCliente, String cognomeCliente, String indirizzo, long id, Babysitter b1, LocalDateTime inizioIntervento, LocalDateTime fineIntervento) throws DateException
@@ -339,5 +339,4 @@ public class Intervento implements Serializable
         else
             return false;
     }
-
 }

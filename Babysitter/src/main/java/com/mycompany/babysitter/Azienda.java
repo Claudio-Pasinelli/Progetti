@@ -187,7 +187,7 @@ public class Azienda implements Serializable
      * @return true se tale babysitter è occupata
      * @return false se tale babysitter è libera
      */
-    private boolean isBabysitterOccupata(Intervento t1, Intervento t2)
+    public boolean isBabysitterOccupata(Intervento t1, Intervento t2)
     {
         if((t1.getInizio().isAfter(t2.getInizio()) && t1.getInizio().isBefore(t2.getFine())) || (t1.getFine().isAfter(t2.getInizio()) && t1.getFine().isBefore(t2.getFine())) || (t1.getInizio().isBefore(t2.getInizio()) && t1.getFine().isAfter(t2.getFine())) || (t1.getInizio().equals(t2.getInizio()) && t1.getFine().equals(t2.getFine())))
             return true;
@@ -301,7 +301,7 @@ public class Azienda implements Serializable
     }
     /**
      * Metodo usato per impostare a true l'attributo boolean dell'intervento cercato contenuto nell'array di interventi dell'azienda tramite un id
-     * @param idIntervento
+     * @param idIntervento è l'id dell'intervento da modificare
      * @throws ImpossibileTerminareIntervento eccezione che avviene quando l'intervento richiesto per la terminazione non è stato trovato
      * @throws InterventoGiaTerminato eccezione che avviene quando l'intervento richiesto per la terminazione è già stato terminato
      */
@@ -557,9 +557,9 @@ public class Azienda implements Serializable
      * Metodo che permette di esportare gli interventi da un file di testo in formato CSV
      * @param filePathName è il nome del file di testo
      * @throws IOException
-     * @throws InterventiNonTrovati
+     * @throws InterventiNonTrovati non sono stati trovati interventi da esportare
      * @throws FileException
-     * @throws InterventoNonTrovato 
+     * @throws InterventoNonTrovato l'intervento da esportare non è stato trovato
      */
     public void esportaInterventiCSV(String filePathName) throws IOException, InterventiNonTrovati, FileException, InterventoNonTrovato
     {

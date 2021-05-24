@@ -18,7 +18,7 @@ import org.junit.Test;
 
 /**
  *
- * @author Pc
+ * @author Claudio Pasinelli
  */
 public class AziendaTest
 {

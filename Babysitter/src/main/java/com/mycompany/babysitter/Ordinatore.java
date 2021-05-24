@@ -79,6 +79,12 @@ public class Ordinatore
         }
         return ordinato;
     }*/
+    /**
+     * Metodo usato per scambiare 2 interventi
+     * @param v è l'array di interventi
+     * @param posizione1 variabile d'appoggio per lo scambio tra un intervento e l'altro
+     * @param posizione2 variabile d'appoggio per lo scambio tra un intervento e l'altro
+     */
     public static void  scambia(Intervento v[],int posizione1, int posizione2)
     {
         Intervento c;
@@ -86,6 +92,11 @@ public class Ordinatore
         v[posizione1]=v[posizione2];
         v[posizione2]=c;
     }
+    /**
+     * Metodo usato per ordinate cronologicamente gli interventi di una determinata babysitter
+     * @param a è l'array di interventi disordinato
+     * @return ordinato è l'array di interventi ordinati cronologicamente
+     */
     public static Intervento[] selectionSortInterventiCronologici(Intervento[] a)
     {
         Intervento[] ordinato=new Intervento[a.length];
