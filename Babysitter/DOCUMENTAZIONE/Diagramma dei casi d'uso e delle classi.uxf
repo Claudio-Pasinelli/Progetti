@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>10</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1200</x>
-      <y>580</y>
-      <w>80</w>
-      <h>110</h>
+      <x>1287</x>
+      <y>441</y>
+      <w>72</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>Babysitter</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1440</x>
-      <y>190</y>
-      <w>280</w>
-      <h>70</h>
+      <x>1503</x>
+      <y>90</y>
+      <w>252</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>Può aggiungere un nuovo intervento</panel_attributes>
     <additional_attributes/>
@@ -26,10 +26,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1440</x>
-      <y>270</y>
-      <w>280</w>
-      <h>70</h>
+      <x>1503</x>
+      <y>162</y>
+      <w>252</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>Può eliminare un intervento</panel_attributes>
     <additional_attributes/>
@@ -37,10 +37,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1420</x>
-      <y>560</y>
-      <w>330</w>
-      <h>90</h>
+      <x>1485</x>
+      <y>423</y>
+      <w>297</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>Può vedere tutti gli interventi della sua azienda</panel_attributes>
     <additional_attributes/>
@@ -48,10 +48,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1430</x>
-      <y>440</y>
-      <w>270</w>
-      <h>70</h>
+      <x>1494</x>
+      <y>315</y>
+      <w>243</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>Può terminare un intervento</panel_attributes>
     <additional_attributes/>
@@ -59,10 +59,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1410</x>
-      <y>740</y>
-      <w>360</w>
-      <h>90</h>
+      <x>1476</x>
+      <y>585</y>
+      <w>324</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>Può vedere tutti gli interventi di una specifica data</panel_attributes>
     <additional_attributes/>
@@ -70,10 +70,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1420</x>
-      <y>650</y>
-      <w>360</w>
-      <h>90</h>
+      <x>1485</x>
+      <y>504</y>
+      <w>324</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>Può vedere tutti gli interventi di una specifica babysitter
 in ordine cronologico</panel_attributes>
@@ -82,10 +82,10 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1230</x>
-      <y>210</y>
-      <w>230</w>
-      <h>420</h>
+      <x>1314</x>
+      <y>108</y>
+      <w>207</w>
+      <h>378</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;400.0;210.0;17.0</additional_attributes>
@@ -93,10 +93,10 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1230</x>
-      <y>290</y>
-      <w>230</w>
-      <h>340</h>
+      <x>1314</x>
+      <y>180</y>
+      <w>207</w>
+      <h>306</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;320.0;210.0;10.0</additional_attributes>
@@ -104,10 +104,10 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1230</x>
-      <y>460</y>
-      <w>220</w>
-      <h>170</h>
+      <x>1314</x>
+      <y>333</y>
+      <w>198</w>
+      <h>153</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;150.0;200.0;10.0</additional_attributes>
@@ -115,10 +115,10 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1230</x>
-      <y>590</y>
-      <w>210</w>
-      <h>40</h>
+      <x>1314</x>
+      <y>450</y>
+      <w>189</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;190.0;15.0</additional_attributes>
@@ -126,10 +126,10 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1230</x>
-      <y>600</y>
-      <w>210</w>
-      <h>120</h>
+      <x>1314</x>
+      <y>459</y>
+      <w>189</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;190.0;92.0</additional_attributes>
@@ -137,10 +137,10 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1230</x>
-      <y>600</y>
-      <w>200</w>
-      <h>210</h>
+      <x>1314</x>
+      <y>459</y>
+      <w>180</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;180.0;185.0</additional_attributes>
@@ -148,10 +148,10 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1380</x>
-      <y>140</y>
-      <w>740</w>
-      <h>890</h>
+      <x>1449</x>
+      <y>45</y>
+      <w>666</w>
+      <h>801</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -159,10 +159,10 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1420</x>
-      <y>940</y>
-      <w>400</w>
-      <h>70</h>
+      <x>1485</x>
+      <y>765</y>
+      <w>360</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>Può salvare gli interventi e le loro modifiche su un file binario</panel_attributes>
     <additional_attributes/>
@@ -170,10 +170,10 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1230</x>
-      <y>600</y>
-      <w>210</w>
-      <h>390</h>
+      <x>1314</x>
+      <y>459</y>
+      <w>189</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;190.0;370.0</additional_attributes>
@@ -181,10 +181,10 @@ in ordine cronologico</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1670</x>
-      <y>50</y>
-      <w>290</w>
-      <h>50</h>
+      <x>1683</x>
+      <y>0</y>
+      <w>261</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>Claudio Pasinelli - Diagramma dei casi d'uso
 bg=yellow</panel_attributes>
@@ -193,10 +193,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1760</x>
-      <y>220</y>
-      <w>350</w>
-      <h>80</h>
+      <x>1791</x>
+      <y>117</y>
+      <w>315</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Può eliminare gli interventi antecedenti ad una data</panel_attributes>
     <additional_attributes/>
@@ -204,10 +204,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1790</x>
-      <y>320</y>
-      <w>280</w>
-      <h>60</h>
+      <x>1818</x>
+      <y>207</y>
+      <w>252</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>Può eliminare gli interventi di una data</panel_attributes>
     <additional_attributes/>
@@ -215,10 +215,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1760</x>
-      <y>400</y>
-      <w>350</w>
-      <h>80</h>
+      <x>1791</x>
+      <y>279</y>
+      <w>315</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Può terminare gli interventi antecedenti ad una data</panel_attributes>
     <additional_attributes/>
@@ -226,10 +226,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1800</x>
-      <y>510</y>
-      <w>280</w>
-      <h>60</h>
+      <x>1827</x>
+      <y>378</y>
+      <w>252</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>Può terminare gli interventi di una data</panel_attributes>
     <additional_attributes/>
@@ -237,10 +237,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1710</x>
-      <y>250</y>
-      <w>70</w>
-      <h>70</h>
+      <x>1746</x>
+      <y>144</y>
+      <w>63</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;50.0;50.0;10.0</additional_attributes>
@@ -248,10 +248,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1710</x>
-      <y>300</y>
-      <w>100</w>
-      <h>70</h>
+      <x>1746</x>
+      <y>189</y>
+      <w>90</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;80.0;50.0</additional_attributes>
@@ -259,10 +259,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1690</x>
-      <y>470</y>
-      <w>130</w>
-      <h>90</h>
+      <x>1728</x>
+      <y>342</y>
+      <w>117</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;110.0;70.0</additional_attributes>
@@ -270,10 +270,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1690</x>
-      <y>430</y>
-      <w>90</w>
-      <h>60</h>
+      <x>1728</x>
+      <y>306</y>
+      <w>81</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;40.0;70.0;10.0</additional_attributes>
@@ -281,10 +281,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>420</y>
-      <w>530</w>
-      <h>510</h>
+      <x>207</x>
+      <y>513</y>
+      <w>477</w>
+      <h>423</h>
     </coordinates>
     <panel_attributes>Azienda
 --
@@ -321,24 +321,24 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>220</x>
-      <y>920</y>
-      <w>200</w>
-      <h>190</h>
+      <x>405</x>
+      <y>927</y>
+      <w>180</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 -elencoInterventi:Intervento[]
 m1=0
 m2=0...N_MAX_INTERVENTI=1000 int</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>1090</y>
-      <w>1760</w>
-      <h>560</h>
+      <x>9</x>
+      <y>1008</y>
+      <w>936</w>
+      <h>504</h>
     </coordinates>
     <panel_attributes>Intervento
 --
@@ -351,7 +351,8 @@ m2=0...N_MAX_INTERVENTI=1000 int</panel_attributes>
 -fine:LocalDateTime
 -terminato:boolean 
 --
-+Intervento(in String nomeCliente, in String cognomeCliente, in String indirizzoCliente, in long id, in Babysitter b1, in int annoInizio, in int meseInizio, in int giornoInizio, in int oraInizio, in int minutiInizio, in int annoFine, in int meseFine, in int giornoFine, in int oraFine, in int minutiFine)
++Intervento(in String nomeCliente, in String cognomeCliente, in String indirizzoCliente, in long id, in Babysitter b1,
+in int annoInizio, in int meseInizio, in int giornoInizio, in int oraInizio, in int minutiInizio, in int annoFine, in int meseFine, in int giornoFine, in int oraFine, in int minutiFine)
 +Intervento(in Intervento intervento)
 +Intervento()
 +getCognomeCliente():String
@@ -382,23 +383,23 @@ m2=0...N_MAX_INTERVENTI=1000 int</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>1640</y>
-      <w>30</w>
-      <h>190</h>
+      <x>387</x>
+      <y>1503</y>
+      <w>27</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>1810</y>
-      <w>410</w>
-      <h>180</h>
+      <x>207</x>
+      <y>1575</y>
+      <w>369</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>Babysitter
 --
@@ -417,10 +418,10 @@ m2=1</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>530</x>
-      <y>940</y>
-      <w>290</w>
-      <h>50</h>
+      <x>738</x>
+      <y>918</y>
+      <w>261</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>Claudio Pasinelli - Diagramma delle classi
 bg=yellow</panel_attributes>
@@ -429,10 +430,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1440</x>
-      <y>850</y>
-      <w>280</w>
-      <h>70</h>
+      <x>1503</x>
+      <y>684</y>
+      <w>252</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>Può eportare gli interventi in formato CSV</panel_attributes>
     <additional_attributes/>
@@ -440,10 +441,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1230</x>
-      <y>600</y>
-      <w>230</w>
-      <h>300</h>
+      <x>1314</x>
+      <y>459</y>
+      <w>207</w>
+      <h>270</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;210.0;280.0</additional_attributes>
@@ -451,10 +452,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1010</x>
-      <y>340</y>
-      <w>290</w>
-      <h>70</h>
+      <x>1116</x>
+      <y>225</y>
+      <w>261</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>L'intervento non deve essere già terminato
 bg=green</panel_attributes>
@@ -463,10 +464,10 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1290</x>
-      <y>370</y>
-      <w>190</w>
-      <h>100</h>
+      <x>1368</x>
+      <y>252</y>
+      <w>171</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>170.0;80.0;10.0;10.0</additional_attributes>
@@ -474,10 +475,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>910</x>
-      <y>30</y>
-      <w>530</w>
-      <h>70</h>
+      <x>954</x>
+      <y>81</y>
+      <w>477</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>Le date dell'intervento da aggiungere non devono accavallarsi con quelle di un altro
 intervento già presente se è svolto dalla stessa babysitter 
@@ -487,21 +488,21 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1430</x>
-      <y>50</y>
-      <w>90</w>
-      <h>170</h>
+      <x>1422</x>
+      <y>90</y>
+      <w>153</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>70.0;150.0;10.0;10.0</additional_attributes>
+    <additional_attributes>150.0;10.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1990</x>
-      <y>0</y>
-      <w>360</w>
-      <h>70</h>
+      <x>1764</x>
+      <y>54</y>
+      <w>324</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>Si eliminano tutti gli interventi antecedenti ad una data
 ma non quelli compresi in essa
@@ -511,32 +512,32 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2050</x>
-      <y>60</y>
-      <w>200</w>
-      <h>190</h>
+      <x>2079</x>
+      <y>72</y>
+      <w>45</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;170.0;180.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;30.0;40.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2090</x>
-      <y>410</y>
-      <w>310</w>
-      <h>40</h>
+      <x>2034</x>
+      <y>333</y>
+      <w>81</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;20.0;290.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;70.0;100.0;20.0;140.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>2140</x>
-      <y>350</y>
-      <w>360</w>
-      <h>70</h>
+      <x>1782</x>
+      <y>459</y>
+      <w>324</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>Si terminano tutti gli interventi (non terminati)
 antecedenti ad una data
@@ -547,10 +548,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>970</x>
-      <y>760</y>
-      <w>290</w>
-      <h>70</h>
+      <x>1080</x>
+      <y>603</y>
+      <w>261</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>L'elenco degli interventi
 non è ordinato in ordine cronologico
@@ -560,10 +561,10 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1250</x>
-      <y>620</y>
-      <w>210</w>
-      <h>200</h>
+      <x>1332</x>
+      <y>477</y>
+      <w>189</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>190.0;10.0;10.0;180.0</additional_attributes>
@@ -571,10 +572,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>2150</x>
-      <y>670</y>
-      <w>400</w>
-      <h>70</h>
+      <x>1764</x>
+      <y>657</y>
+      <w>342</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>Risultato positivo anche se gli interventi oggetto di ricerca
 sono già stati terminati
@@ -584,23 +585,24 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2080</x>
-      <y>450</y>
-      <w>90</w>
-      <h>270</h>
+      <x>2079</x>
+      <y>315</y>
+      <w>81</w>
+      <h>360</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;250.0</additional_attributes>
+    <additional_attributes>20.0;10.0;70.0;150.0;10.0;380.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2000</x>
-      <y>560</y>
-      <w>170</w>
-      <h>160</h>
+      <x>2061</x>
+      <y>333</y>
+      <w>99</w>
+      <h>135</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;150.0;140.0</additional_attributes>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;130.0</additional_attributes>
   </element>
 </diagram>
